@@ -1,12 +1,14 @@
-
-import './App.css';
 import Footer from './Pages/Footer/Footer';
+import Home_page from './Pages/home_page/Home_page';
+
 
 function App() {
   return (
-    <div className="App">
-     <Footer/>
-    </div>
+  <>
+    <Home_page/>
+    <Footer/>
+</>
+
   );
 }
 
