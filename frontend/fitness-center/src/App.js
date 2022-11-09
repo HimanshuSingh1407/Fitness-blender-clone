@@ -1,17 +1,11 @@
 import './App.css';
-import Workout from './Pages/Workouts/Workout';
-import Footer from './Pages/Footer/Footer';
-import Home_page from './Pages/home_page/Home_page';
-
+import Store from './Pages/Store/Store';
 
 function App() {
   return (
-  <>
-    <Home_page/>
-    <Footer/>
-    <Workout/>
-</>
-
+    <div className="App">
+      <Store />
+    </div>
   );
 }
 
