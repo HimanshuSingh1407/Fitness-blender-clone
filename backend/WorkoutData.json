@@ -1,0 +1,122 @@
+{
+    "freeWorkoutData":[
+         {  
+            "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1083-restorative-bodyweight-workout-ac41.jpg",
+            "text1":"Restorative Bodyweight Workout Low Impact Exercises for Sore Muscles",
+            "text2":"24 Min • Total Body"
+         },
+         {  
+            "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1133-single-weight-upper-body-a19e.jpg",
+            "text1":"Single Weight Upper Body Quick Strength Training Circuit",
+            "text2":"23 Min • Upper Body"
+         },
+         {  
+            "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1082-quick-total-body-power-yoga-a26d.jpg",
+            "text1":"Quick Total Body Power Yoga Beginner-Friendly Flow to Build Strength and Release Tension",
+            "text2":"29 Min • Total Body"
+         },
+         {  
+            "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1111-lower-body-strength-with-hiit-finisher-838a.jpg",
+            "text1":"Lower Body Strength With HIIT Finisher Weights With Cardio EMOMs",
+            "text2":"28 Min • Lower Body"
+         }
+       
+    ],
+
+    "plusWorkoutData":[
+        {  
+           "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1152-bodyweight-cardio-circuits-bcfd.jpg",
+           "text1":"Bodyweight Cardio Circuits Total Body Exercise Progressions",
+           "text2":"46 Min • Total Body"
+        },
+        {  
+           "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1109-unilateral-kettlebell-strength-818e.jpg",
+           "text1":"Power Yoga for Full Splits Lower Body Flexibility and Mobility",
+           "text2":"34 Min • Lower Body"
+        },
+        {  
+           "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1082-quick-total-body-power-yoga-a26d.jpg",
+           "text1":"Unilateral Kettlebell Strength With Advanced Mobility and Core Stabilization",
+           "text2":"21 Min • Core, Total Body"
+        },
+        {  
+           "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1139-low-impact-tabata-hiit-a11e.jpg",
+           "text1":"Low Impact Tabata HIITSweaty Level 5 Circuits",
+           "text2":"33 Min • Total Body"
+        }
+      
+   ],
+
+   "BeginnerWorkoutData":[
+    {  
+       "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1083-restorative-bodyweight-workout-ac41.jpg",
+       "text1":"Restorative Bodyweight Workout Low Impact Exercises for Sore Muscles",
+       "text2":"46 Min • Total Body"
+    },
+    {  
+       "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1098-upper-body-two-day-split-pull-9c47.jpg",
+       "text1":"Upper Body Two Day Split - Pull Strengthen the Rhombiods, Lats, and Biceps",
+       "text2":"58 Min • Upper Body"
+    },
+    {  
+       "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1030-lower-body-resistance-band-workout-b0ec.jpg",
+       "text1":"Lower Body Resistance Band Workout Exercises for Hips, Glutes, and Pelvic Stabilization",
+       "text2":"14 Min • Lower Body"
+    },
+    {  
+       "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1116-glute-burnout-with-resistance-band-a4f2.jpg",
+       "text1":"Glute Burnout With Resistance Band Isolate, Strengthen, and Tone Your Glutes",
+       "text2":"26 Min • Lower Body"
+    }
+  
+],
+
+
+"HIITWorkoutsData":[
+    {  
+       "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1139-low-impact-tabata-hiit-a11e.jpg",
+       "text1":"Low Impact Tabata HIIT Sweaty Level 5 Circuits",
+       "text2":"33 Min • Total Body"
+    },
+    {  
+       "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1106-prenatal-hiit-and-core-ab22.jpg",
+       "text1":"Prenatal HIIT and Core Circuits to Prepare For Birth",
+       "text2":"38 Min • Core, Total Body"
+    },
+    {  
+       "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1147-bodyweight-hiit-pyramid-a146.jpg",
+       "text1":"Bodyweight HIIT Pyramid Ascending and Descending Cardio Rounds",
+       "text2":"38 Min • Total Body"
+    },
+    {  
+       "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1126-strength-and-cardio-hiit-97bf.jpg",
+       "text1":"Advanced Tabata HIIT Weighted and Bodyweight Circuits",
+       "text2":"34 Min • Total Body"
+    }
+  
+],
+"strengthWorkoutsData":[
+    {  
+       "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1109-unilateral-kettlebell-strength-818e.jpg",
+       "text1":"Unilateral Kettlebell Strength With Advanced Mobility and Core Stabilization",
+       "text2":"21 Min • Core, Total Body"
+    },
+    {  
+       "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1098-upper-body-two-day-split-pull-9c47.jpg",
+       "text1":"Upper Body Two Day Split - Pull Strengthen the Rhombiods, Lats, and Biceps",
+       "text2":"58 Min • Upper Body"
+    },
+    {  
+       "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1140-single-weight-strength-training-a899.jpg",
+       "text1":"Single Weight Strength Training Circuits With Combination Moves",
+       "text2":"33 Min • Total Body"
+    },
+    {  
+       "image":"https://d18zdz9g6n5za7.cloudfront.net/video/640/640-1147-bodyweight-hiit-pyramid-a146.jpg",
+       "text1":"Bodyweight HIIT Pyramid Ascending and Descending Cardio Rounds",
+       "text2":"38 Min • Total Body"
+    }
+  
+]
+    
+}
