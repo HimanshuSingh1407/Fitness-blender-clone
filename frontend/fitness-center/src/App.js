@@ -1,12 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 import Workout from './Pages/Workouts/Workout';
+import Footer from './Pages/Footer/Footer';
+import Home_page from './Pages/home_page/Home_page';
+
 
 function App() {
   return (
-    <div className="App">
+  <>
+    <Home_page/>
+    <Footer/>
     <Workout/>
-    </div>
+</>
+
   );
 }
 
