@@ -11,12 +11,41 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
-import passArray from "../../assets/storeData/passData";
 import Epass from "../../Components/store/Epass";
-import giftArray from "../../assets/storeData/giftData";
 import Gift from "../../Components/store/Gift";
+import shirts from "../../assets/storeImages/shirts-20200224.jpg";
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
+
+
+
 
 const Store = () => {
+
+  const [giftData, setGiftData] = useState([]);
+  const [passData, setPassData] = useState([]);
+
+  const getGiftData = async () => {
+    let res = await axios.get(`http://localhost:8080/giftArray`);
+    let data = await res.data
+    setGiftData(data)
+  }
+  
+
+  const getPassData = async () => {
+    let res = await axios.get(`http://localhost:8080/passArray`);
+    let data = await res.data
+    setPassData(data)
+  }
+ 
+
+  useEffect(() => {
+    getGiftData();
+    getPassData();
+  }, []);
+
+
   return (
     <>
       <Container bgColor={"gray.100"} maxW="100%" border={"1px solid white"}>
@@ -29,7 +58,7 @@ const Store = () => {
               marginLeft="auto"
               marginRight="auto"
             >
-              <Heading p={"1"} m={"1"}>
+              <Heading p={"1"} m={"1"} fontWeight='400'>
                 FB Plus Passes
               </Heading>
               <Text p={"1"} m={"1"} fontSize="17">
@@ -46,13 +75,20 @@ const Store = () => {
             </Stack>
             <Stack
               marginTop="8"
-              maxW="80%"
+              maxW={{base:"90%",md:"80%",lg:"80%"}}
               marginLeft="auto"
               marginRight="auto"
               marginBottom={"20"}
             >
-              <Grid templateColumns={"repeat(4, 1fr)"} gap="2">
-                {passArray.map((el, index) => (
+              <Grid
+                gridTemplateColumns={{
+                  base: "repeat(1,1fr)",
+                  md: "repeat(2,1fr)",
+                  lg: "repeat(4,1fr)",
+                }}
+                gap="2"
+              >
+                {passData.map((el, index) => (
                   <Epass
                     key={index}
                     image={el.images}
@@ -98,8 +134,16 @@ const Store = () => {
               marginRight="auto"
               marginBottom={"20"}
             >
-              <Grid templateColumns={"repeat(4, 1fr)"} gap="2">
-                {giftArray.map((el, index) => (
+              <Grid
+                gridTemplateColumns={{
+                  base: "repeat(1,1fr)",
+                  md: "repeat(2,1fr)",
+                  lg: "repeat(3,1fr)",
+                  xl: "repeat(4,1fr)",
+                }}
+                gap="2"
+              >
+                {giftData.map((el, index) => (
                   <Gift key={index} image={el.images} price={el.price} />
                 ))}
               </Grid>
@@ -112,11 +156,7 @@ const Store = () => {
         <Center>
           <Box>
             <Flex gap={"2"}>
-              <img
-                width={"50%"}
-                src="https://cloudfront.fitnessblender.com/assets/img/workout-complete/shirts-20200224.jpg"
-                alt="cloths"
-              />
+              <img width={"50%"} src={shirts} alt="cloths" />
               <Stack textAlign={"left"}>
                 <Heading marginBottom={"2"} p="4" fontWeight="400" size={"2xl"}>
                   Fitness Blender Gear
@@ -141,7 +181,6 @@ const Store = () => {
                 <Text p="4" size={"xl"} color="blue">
                   Tell us what gear you'd like.
                 </Text>
-
               </Stack>
             </Flex>
           </Box>
@@ -150,7 +189,7 @@ const Store = () => {
 
       <Container bgColor={"#e6f0f8"} maxW="100%">
         <Center>
-          <Stack marginTop={"100px"} spacing="8" marginBottom={'80px'}>
+          <Stack marginTop={"100px"} spacing="8" marginBottom={"80px"}>
             <Heading>Other Shopping Options</Heading>
             <Text>
               Explore Workout Programs, Meal Plans, and FB Plus memberships.

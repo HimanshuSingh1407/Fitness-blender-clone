@@ -14,16 +14,23 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
-import { BiShoppingBag } from 'react-icons/bi'
-
-
+import { BiShoppingBag } from "react-icons/bi";
 
 const Epass = ({ image, day, para, price }) => {
   return (
     <>
-      <Box borderRadius={"5px"} minWidth="250px" bgColor={'white'} paddingBottom={'2'} >
-        <img src={image} alt="image" />
-        <Flex justifyContent={"space-between"} p="1" paddingEnd={'2'}>
+      <Box
+        borderRadius={"5px"}
+        minWidth="250px"
+        bgColor={"white"}
+        paddingBottom={"2"}
+      >
+        <img
+          src={image}
+          alt="image"
+          width={{ base: "100%", md: "100%", lg: "100%" }}
+        />
+        <Flex justifyContent={"space-between"} p="1" paddingEnd={"2"}>
           <Stack>
             <Box textAlign={"left"} p="2">
               <Text fontSize="xs">{para.toUpperCase()}</Text>
@@ -34,9 +41,15 @@ const Epass = ({ image, day, para, price }) => {
               {price}
             </Text>
           </Stack>
-          <Stack flexDirection={'column-reverse'}>
-            <Button leftIcon={<Icon as={BiShoppingBag} fontSize='lg'/>} color='white' bg={'blue.500'} fontSize='xs'>
-                ADD TO BAG
+          <Stack flexDirection={"column-reverse"}>
+            <Button
+              leftIcon={<Icon as={BiShoppingBag} fontSize="lg" />}
+              color="white"
+              bg={"blue.500"}
+              fontSize="xs"
+              _hover="none"
+            >
+              ADD TO BAG
             </Button>
           </Stack>
         </Flex>
