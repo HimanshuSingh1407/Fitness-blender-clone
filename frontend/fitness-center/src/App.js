@@ -1,11 +1,16 @@
 import './App.css';
 import Store from './Pages/Store/Store';
+import Home_page from './Pages/home_page/Home_page';
+import Navbar_main from './Components/homepage/navbar_main/Navbar_main';
 
 function App() {
   return (
-    <div className="App">
-      <Store />
-    </div>
+    <>
+    <Navbar_main/>
+      <Home_page/>
+      <Store/>
+    </>
+
   );
 }
 
