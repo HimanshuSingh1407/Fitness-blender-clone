@@ -6,8 +6,8 @@ import Cart from './Pages/Cart/Cart';
 function App() {
   return (
     <div className="App">
-      {/* <Store /> */}
-      <Cart />
+      <Store />
+      {/* <Cart /> */}
       {/* <Footer /> */}
     </div>
   );
