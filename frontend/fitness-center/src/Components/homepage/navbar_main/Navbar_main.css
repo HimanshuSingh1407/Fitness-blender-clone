@@ -1,0 +1,222 @@
+navbar_mean_machine{
+    position: sticky;
+}
+
+.navbar_main_menu_items {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 32px 15px 0px 15px;
+  font-size: 13.6px;
+  background-color: rgb(255, 255, 255);
+  height: 100%;
+  align-items: center;
+}
+.navbar_main_menu_items_workout {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  border-bottom: 3px solid rgb(255, 255, 255);
+}
+.navbar_main_menu_items_workout:hover {
+  border-bottom: 3px solid rgb(66, 150, 203);
+  cursor: pointer;
+  
+}
+.navbar_main_menu_items_workout_text {
+  color: rgb(33, 36, 50);
+  font-weight: 600;
+}
+.navbar_main_menu_items_programs {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  border-bottom: 3px solid rgb(255, 255, 255);
+}
+.navbar_main_menu_items_programs:hover {
+  border-bottom: 3px solid rgb(66, 150, 203);
+  cursor: pointer;
+}
+.navbar_main_menu_items_programs_text {
+  color: rgb(33, 36, 50);
+  font-weight: 600;
+}
+.navbar_main_menu_items_community {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  border-bottom: 3px solid rgb(255, 255, 255);
+}
+.navbar_main_menu_items_community:hover {
+  border-bottom: 3px solid rgb(66, 150, 203);
+  cursor: pointer;
+}
+.navbar_main_menu_items_community_text {
+  color: rgb(33, 36, 50);
+  font-weight: 600;
+}
+.navbar_main_menu_items_about {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  border-bottom: 3px solid rgb(255, 255, 255);
+}
+.navbar_main_menu_items_about:hover {
+  border-bottom: 3px solid rgb(66, 150, 203);
+  cursor: pointer;
+}
+.navbar_main_menu_items_about_text {
+  color: rgb(33, 36, 50);
+  font-weight: 600;
+}
+.navbar_main_menu_items_healthy_living {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  border-bottom: 3px solid rgb(255, 255, 255);
+}
+.navbar_main_menu_items_healthy_living:hover {
+  border-bottom: 3px solid rgb(66, 150, 203);
+  cursor: pointer;
+}
+.navbar_main_menu_items_healthy_living_text {
+  color: rgb(33, 36, 50);
+  font-weight: 600;
+}
+.navbar_main_menu_items_membership {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  gap: 5px;
+  height: 100%;
+  border-bottom: 3px solid rgb(255, 255, 255);
+}
+.navbar_main_menu_items_membership:hover {
+  border-bottom: 3px solid rgb(66, 150, 203);
+  cursor: pointer;
+}
+.navbar_main_menu_items_membership_text {
+  color: rgb(66, 150, 203);
+  font-weight: 600;
+}
+.navbar_main_menu_items_signup {
+    text-align: center;
+    padding: 32px 15px 0px 15px;
+    height: 100%;
+    border-left: 1px solid rgb(233, 242, 244);
+
+    background-color: rgb(255, 255, 255);
+}
+.navbar_main_menu_items_signup:hover {
+    border-bottom: 3px solid rgb(66, 150, 203);
+    cursor: pointer;
+  }
+.navbar_main_menu_items_myfitness_text_box {
+  display: flex;
+  width: 100%;
+  gap: 5px;
+ justify-content: center;
+  font-size: 13px;
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+  margin-left: 16px;
+}
+.navbar_main_menu_items_hiSign_text {
+  color: rgb(66, 150, 203);
+  font-weight: 400;
+  font-size: 12px;
+}
+.navbar_main_menu_items_myfitness_text {
+  font-weight: 600;
+  color: rgb(33, 36, 50);
+}
+
+
+
+.navbar_main_menu_items_right_most{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 45px;
+    border-left: 1px solid rgb(233, 242, 244);
+}
+.navbar_main_menu_items_search{
+    height: 100%;
+    width: auto;
+    border-bottom: 3px solid rgb(255, 255, 255);
+}
+.navbar_main_menu_items_search:hover{
+    border-bottom: 3px solid rgb(66, 150, 203);
+    cursor: pointer;
+  
+}
+.navbar_main_menu_items_shopping_bag{
+    height: 100%;
+    border-bottom: 3px solid rgb(255, 255, 255);
+    
+}
+.navbar_main_menu_items_shopping_bag:hover{
+    border-bottom: 3px solid rgb(66, 150, 203);
+    cursor: pointer;
+
+}
+
+
+/* black box  light rgb(49,52,67) darker rgb(34,37,51) */
+
+
+/* .navbar_main_menu_items_workout:hover + .navbar_main_menu_blackbox{
+    display: block;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(49,52,67);
+} */
+.navbar_main_menu_blackbox-workout{
+    display: none;
+    z-index: 20;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(49,52,67);
+}
+.navbar_main_menu_blackbox-programs{
+    display: none;
+    z-index: 20;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(49,52,67);
+}
+.navbar_main_menu_blackbox-about{
+    display: none;
+    z-index: 20;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(49,52,67);
+    
+}
+.navbar_main_menu_blackbox-healthy_living{
+    display: none;
+    z-index: 20;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(49,52,67);
+    
+}
+.navbar_main_menu_blackbox-community{
+    display: none;
+    z-index: 20;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(49,52,67);
+
+}
