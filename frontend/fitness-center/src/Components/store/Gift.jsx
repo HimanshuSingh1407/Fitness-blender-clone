@@ -36,6 +36,7 @@ const Gift = ({ image, price }) => {
             color="white"
             bg={"blue.500"}
             fontSize="xs"
+            _hover='none'
           >
             ADD TO BAG
           </Button>
