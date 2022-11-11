@@ -14,33 +14,29 @@ import "./Footer.css"
 const Footer = () => {
     return (
         <div className='footer_main_div' >
-            <Box   w="170px" className='footer_logo' mt={10} display={["block","block","none","none","none"]}  >
-                <Image mr={40} w="100%"  src={footerImage} alt='logo' />
-                <p id='workout_complete'>WORKOUT COMPLETE</p>
+
+
+
+          <Box  display="flex"  justifyContent="center" gap={10}   >
+
+            <Box w="150px" className='footer_logo' mt={10} >
+                <Image w="100%"  src={footerImage} alt='logo' />
+                <p>WORKOUT COMPLETE</p>
             </Box>
 
 
+            <Box className='footer_section'>
+                <Grid templateColumns='repeat(4, 1fr)' gap={5} textAlign="left" ml={5}>
 
-          <Box  display="flex"  justifyContent="center" gap={5}   >
-
-            <Box   w="170px" className='footer_logo' mt={10} display={["none","none","block","block","block"]}  >
-                <Image mr={40} w="100%"  src={footerImage} alt='logo' />
-                <p id='workout_complete'>WORKOUT COMPLETE</p>
-            </Box>
-
-
-            <Box className='footer_section' >
-                <Grid templateColumns='repeat(4, 1fr)' gap={8} textAlign="center" className='maindiv' >
-
-                    <GridItem color="white">
+                    <GridItem color="white"  >
                         <br/>
-                        <Heading id="footer_heading" color="white" as="h4" size='xs' mt={7}>WORKOUTS</Heading>
+                        <Heading color="white" as="h4" size='xs' mt={7}>WORKOUTS</Heading>
                         <br />
                         <Text id="text" fontSize='sm' >WORKOUT VIDEOS</Text>
                         <br />
                         <Text id="text" fontSize='sm' >CUSTOM WORKOUTS</Text>
                         <br />
-                        <Heading id="footer_heading" color="white" as="h4" size='xs'>PROGRAMS</Heading>
+                        <Heading color="white" as="h4" size='xs'>PROGRAMS</Heading>
                         <br />
                         <Text id="text" fontSize='sm' >WORKOUT PROGRAMS</Text>
                         <br />
@@ -55,7 +51,7 @@ const Footer = () => {
                     <GridItem color="white" >
                         <br />
                         <br />
-                        <Heading id="footer_heading" size='xs'>HEALTHY LIVING</Heading>
+                        <Heading size='xs'>HEALTHY LIVING</Heading>
                         <br />
                         <Text id="text" fontSize='sm' >FITNESS</Text>
                         <br />
@@ -69,10 +65,10 @@ const Footer = () => {
 
                     </GridItem >
 
-                    <GridItem className='aboutArea' color="white" >
+                    <GridItem color="white" >
                         <br />
                         <br />
-                        <Heading id="footer_heading" size='sm'>ABOUT</Heading>
+                        <Heading size='sm'>ABOUT</Heading>
                         <br />
                         <Text id="text" fontSize='sm' >B2B OPTIONS</Text>
                         <br />
@@ -88,17 +84,17 @@ const Footer = () => {
                     <GridItem color="white" >
                         <br />
                         <br />
-                        <Heading id="footer_heading" size='xs'>MEMBERSHIP</Heading>
+                        <Heading size='xs'>MEMBERSHIP</Heading>
                         <br />
-                        <Text id="text1">FB PLUS</Text>
+                        <Text id="text">FB PLUS</Text>
                         <br />
-                        <Text id="text1">COMMUNITY</Text>
+                        <Text id="text">COMMUNITY</Text>
                         <br />
-                        <Text id="text1">CONTACT US</Text>
+                        <Text id="text">CONTACT US</Text>
                         <br />
-                        <Text id="text1">FAQ</Text>
+                        <Text id="text">FAQ</Text>
                         <br />
-                        <Text id="text1">STORE</Text>
+                        <Text id="text">STORE</Text>
                     </GridItem>
 
                 </Grid>
@@ -113,7 +109,7 @@ const Footer = () => {
             <br/>
             <br/>
             <br/>
-            <hr id='hr_tag' />
+            <hr />
 
 
             
@@ -128,19 +124,19 @@ const Footer = () => {
                     <br />
                     <HStack gap={3}>
 
-                        <Text className='Copyright' fontSize='sm'>Copyright © 2022 Fitness Blender. All rights reserved. </Text>
-                        <Text className='term_policy' fontSize='sm'>Terms of Use</Text>
-                        <Text className='term_policy' fontSize='sm'> Privacy Policy</Text>
+                        <Text fontSize='sm'>Copyright © 2022 Fitness Blender. All rights reserved. </Text>
+                        <Text fontSize='sm'>Terms of Use</Text>
+                        <Text fontSize='sm'> Privacy Policy</Text>
                       
                     </HStack>
                 </Box>
                 <Box color="white" display="flex" justifyContent="center" gap={5} p={8} >
                     <br />
-                    <Text className='socal_icon' fontSize='xl'>  <BsYoutube /> </Text>
-                    <Text className='socal_icon' fontSize='xl'>  <BsPinterest /> </Text>
-                    <Text className='socal_icon' fontSize='xl'>  <AiFillFacebook /> </Text>
-                    <Text className='socal_icon' fontSize='xl'>  <AiFillInstagram /> </Text>
-                    <Text className='socal_icon' fontSize='xl'>  <AiFillTwitterCircle /> </Text>
+                    <Text fontSize='xl'>  <BsYoutube /> </Text>
+                    <Text fontSize='xl'>  <BsPinterest /> </Text>
+                    <Text fontSize='xl'>  <AiFillFacebook /> </Text>
+                    <Text fontSize='xl'>  <AiFillInstagram /> </Text>
+                    <Text fontSize='xl'>  <AiFillTwitterCircle /> </Text>
                     
                 </Box>
             </Box>

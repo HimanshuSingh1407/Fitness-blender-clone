@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box,Text,Image,Hide} from '@chakra-ui/react'
+import {Box,Container,Image} from '@chakra-ui/react'
 import axios from "axios"
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -37,6 +37,12 @@ const Workout = () => {
         setHILTData(data)
         }
 
+        async function getHILTWorkoutData (){
+          let res=await axios.get(`http://localhost:8080/HIITWorkoutsData`)
+          let data=await res.data;
+          setHILTData(data)
+          }
+
           async function getstrengthWorkoutData (){
             let res=await axios.get(`http://localhost:8080/strengthWorkoutsData`)
             let data=await res.data;
@@ -56,26 +62,9 @@ const Workout = () => {
 
   return (
     <Box fontFamily={"Helvetica"}>
-        <Hide below='md'>
-          <Box>
-            <Box ml={{base:"20px",md:"=20px",lg:"150px",xl:"150px"}} mt={"200px"} textAlign={"start"} w={"700px"} zIndex={1} position={"absolute"}>
-              <Text color={"#4296cb"}>ONLINE WORKOUT VIDEOS</Text>
-              <Text w={{base:"300px",md:"400px",lg:"500px",xl:"500px"}} color={"white"} fontSize={"45px"}>Find Your Fitness. Something for Everyone.</Text>
-              <Text w={{base:"300px",md:"400px",lg:"500px",xl:"500px"}} color={"white"} fontSize={"16px"}>A huge selection of workout videos and programs to help you look and feel your best.</Text>
-            </Box>
-          <Image h={"600px"} src="https://d18zdz9g6n5za7.cloudfront.net/workouts_programs/masthead-workouts.jpg" w={{base:"1000px",md:"1000px",lg:"1200px",xl:"1600px"}} alt="Screenshot-2022-11-09-123312" border="0"/>
-          </Box>
-        </Hide>
-        <Hide above='md'>
-          <Box>
-            <Image h={{base:"250px",sm:"400px",md:"400px",lg:"500px"}}  w={{base:"500px",sm:"700px",md:"1000px",lg:"1000px"}} src="https://d18zdz9g6n5za7.cloudfront.net/workouts_programs/masthead-workouts-xs.jpg" alt="Screenshot-2022-11-09-123312" border="0"/> 
-          </Box>
-          <Box  display={"grid"} justifyContent={"center"} m={"auto"} h={"200px"} pt={"20px"} fontSize={"11px"} bgColor={"#212432"} w={{base:"450px",sm:"700px",md:"800px",lg:"1000px"}}>
-                 <Text color={"#4296cb"}>ONLINE WORKOUT VIDEOS</Text>
-                 <Text  w={"300px"} fontSize={"23px"} color={"white"}>Find Your Fitness. Something for Everyone.</Text>
-                 <Text w={"300px"} color={"white"}>A huge selection of workout videos and programs to help you look and feel your best.</Text>
-             </Box>
-        </Hide>
+         <Box>
+         <Image h={"600px"} src="https://d18zdz9g6n5za7.cloudfront.net/workouts_programs/masthead-workouts.jpg" w={{base:"1000px",md:"1000px",lg:"1200px",xl:"1500px"}} alt="Screenshot-2022-11-09-123312" border="0"/>
+         </Box>
          
       <Box bgColor={"#e3ebee"}>
           <Box pb={"90px"} pt={"90px"}>
