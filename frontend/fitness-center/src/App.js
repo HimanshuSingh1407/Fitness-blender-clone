@@ -1,14 +1,13 @@
-import './App.css';
-// import Store from './Pages/Store/Store';
-// import Footer from './Pages/Footer/Footer';
-// import Cart from './Pages/Cart/Cart';
-import WorkoutVideos from './Pages/Workouts/WorkoutVideos'
+import Store from './Pages/Store/Store';
+import Footer from './Pages/Footer/Footer';
+import Cart from './Pages/Cart/Cart';
+
+
 function App() {
   return (
     <div>
-       <WorkoutVideos/>
       {/* <Store /> */}
-      {/* <Cart /> */}
+      <Cart />
       {/* <Footer /> */}
     </div>
   );

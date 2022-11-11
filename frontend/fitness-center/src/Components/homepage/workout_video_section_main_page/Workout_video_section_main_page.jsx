@@ -98,13 +98,11 @@ const Workout_video_section_main_page = () => {
                   {item.sub_title}
                 </Text>
                 <Text
-                  //   _hover={{ cursor: "pointer", borderBottom: "1px" }}
-
+                  _hover={{ cursor: "pointer", border: "blue" }}
+                  className="link_to_content_homepage"
                   color={item.color_of_link}
                 >
-                  <span className="link_to_content_homepage">
-                    {item.link_to_content}
-                  </span>
+                  {item.link_to_content}
                 </Text>
               </Box>
               <Center>
@@ -120,4 +118,4 @@ const Workout_video_section_main_page = () => {
 
 export default Workout_video_section_main_page;
 
-//rgb(66,162,216)"
+//rgb(66,162,216"

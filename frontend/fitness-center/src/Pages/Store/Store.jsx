@@ -14,39 +14,28 @@ import React from "react";
 import Epass from "../../Components/store/Epass";
 import Gift from "../../Components/store/Gift";
 import shirts from "../../assets/storeImages/shirts-20200224.jpg";
+import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { useState } from "react";
-import axios from "axios";
-
-
-
+import { getStoreDataArray } from "../../api/storeSlice";
+import { addItemToCart } from "../../api/cartSlice";
 
 const Store = () => {
+  const { storeSlice } = useSelector((state) => state);
+  //console.log(storeSlice)
+  const dispatch = useDispatch();
 
-  const [giftData, setGiftData] = useState([]);
-  const [passData, setPassData] = useState([]);
-
-  const getGiftData = async () => {
-    let res = await axios.get(`http://localhost:8080/giftArray`);
-    let data = await res.data
-    setGiftData(data)
-  }
-  
-
-  const getPassData = async () => {
-    let res = await axios.get(`http://localhost:8080/passArray`);
-    let data = await res.data
-    setPassData(data)
-  }
- 
+  const addItem = (data) => {
+    dispatch(addItemToCart(data));
+  };
 
   useEffect(() => {
-    getGiftData();
-    getPassData();
+    dispatch(getStoreDataArray());
+    //console.log(storeSlice)
   }, []);
 
-
-  return (
+  return storeSlice.status === "loading" ? (
+    <div>Loading....</div>
+  ) : (
     <>
       <Container bgColor={"gray.100"} maxW="100%" border={"1px solid white"}>
         <Center>
@@ -58,7 +47,7 @@ const Store = () => {
               marginLeft="auto"
               marginRight="auto"
             >
-              <Heading p={"1"} m={"1"} fontWeight='400'>
+              <Heading p={"1"} m={"1"}>
                 FB Plus Passes
               </Heading>
               <Text p={"1"} m={"1"} fontSize="17">
@@ -75,7 +64,7 @@ const Store = () => {
             </Stack>
             <Stack
               marginTop="8"
-              maxW={{base:"90%",md:"80%",lg:"80%"}}
+              maxW={{ base: "90%", md: "80%", lg: "80%" }}
               marginLeft="auto"
               marginRight="auto"
               marginBottom={"20"}
@@ -88,13 +77,15 @@ const Store = () => {
                 }}
                 gap="2"
               >
-                {passData.map((el, index) => (
+                {storeSlice.ePassArray.map((el, index) => (
+                  //console.log(el.lazyfade_src)
                   <Epass
                     key={index}
                     image={el.images}
                     day={el.day}
                     para={el.para}
-                    price={"$"+el.price}
+                    price={el.price}
+                    fun={addItem}
                   />
                 ))}
               </Grid>
@@ -143,8 +134,13 @@ const Store = () => {
                 }}
                 gap="2"
               >
-                {giftData.map((el, index) => (
-                  <Gift key={index} image={el.images} price={"$"+el.price} />
+                {storeSlice.giftArray.map((el, index) => (
+                  <Gift
+                    key={index}
+                    image={el.images}
+                    price={el.price}
+                    fun={addItem}
+                  />
                 ))}
               </Grid>
             </Stack>

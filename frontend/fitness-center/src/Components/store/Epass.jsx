@@ -16,7 +16,7 @@ import {
 import React from "react";
 import { BiShoppingBag } from "react-icons/bi";
 
-const Epass = ({ image, day, para, price }) => {
+const Epass = ({ image, day, para, price, fun }) => {
   return (
     <>
       <Box
@@ -38,7 +38,7 @@ const Epass = ({ image, day, para, price }) => {
             </Box>
             <Spacer />
             <Text textAlign={"left"} fontWeight="500" p={"2"}>
-              {price}
+              {`$${price}`}
             </Text>
           </Stack>
           <Stack flexDirection={"column-reverse"}>
@@ -48,6 +48,7 @@ const Epass = ({ image, day, para, price }) => {
               bg={"blue.500"}
               fontSize="xs"
               _hover="none"
+              onClick={() => fun({ image, day, para, price })}
             >
               ADD TO BAG
             </Button>
