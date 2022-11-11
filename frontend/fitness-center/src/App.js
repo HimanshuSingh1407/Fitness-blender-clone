@@ -19,7 +19,6 @@ function App() {
       {/* <Login_page/> */}
       <MemberShip_signUp/>
     </>
-
   );
 }
 

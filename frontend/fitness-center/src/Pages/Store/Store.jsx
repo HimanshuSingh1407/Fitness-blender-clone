@@ -94,7 +94,7 @@ const Store = () => {
                     image={el.images}
                     day={el.day}
                     para={el.para}
-                    price={el.price}
+                    price={"$"+el.price}
                   />
                 ))}
               </Grid>
@@ -144,7 +144,7 @@ const Store = () => {
                 gap="2"
               >
                 {giftData.map((el, index) => (
-                  <Gift key={index} image={el.images} price={el.price} />
+                  <Gift key={index} image={el.images} price={"$"+el.price} />
                 ))}
               </Grid>
             </Stack>
