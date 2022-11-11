@@ -22,10 +22,29 @@
 .footer_main_div{
   
     background-color: #212432;
+<<<<<<< HEAD
     height: auto;
+=======
+    /* height: auto; */
+    width: auto;
+    /* border: 1px solid blue; */
+
+}
+
+.footer_section {
+    /* border: 1px solid red; */
+    margin-left: 130px;
+    width: 50vw;
+    background-color: #212432 ;
+>>>>>>> 9f6a3cb8ae3195dd5b92afcae9734deb981ff1a5
 }
 
 
 
 
+<<<<<<< HEAD
+=======
+
+@media screen and (max-width: 320px)and (max-width:499px) {
+>>>>>>> 9f6a3cb8ae3195dd5b92afcae9734deb981ff1a5
 
