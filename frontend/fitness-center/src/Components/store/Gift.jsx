@@ -16,7 +16,7 @@ import {
 import React from "react";
 import { BiShoppingBag } from "react-icons/bi";
 
-const Gift = ({ image, price }) => {
+const Gift = ({ image, price, fun }) => {
   return (
     <>
       <Box
@@ -28,7 +28,7 @@ const Gift = ({ image, price }) => {
         <img src={image} alt="image" />
         <Flex justifyContent={"space-between"} p="2" paddingEnd={"2"} marginTop='3'>
           <Text textAlign={"left"} fontWeight="500" p={"2"}>
-            {price}
+            {`$${price}`}
           </Text>
 
           <Button
@@ -37,6 +37,7 @@ const Gift = ({ image, price }) => {
             bg={"blue.500"}
             fontSize="xs"
             _hover='none'
+            onClick={()=>fun({image, price})}
           >
             ADD TO BAG
           </Button>
