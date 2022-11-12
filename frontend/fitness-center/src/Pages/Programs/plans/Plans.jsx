@@ -7,6 +7,7 @@ import "./Plans.css"
 import {BiShoppingBag} from "react-icons/bi"
 import {RiFilter2Line} from "react-icons/ri"
 import {IoMdSearch} from "react-icons/io"
+import { Link } from "react-router-dom";
 
 const Plans = () => {
 
@@ -81,7 +82,9 @@ const Plans = () => {
                                    <h4>{ele.x_small}</h4> 
                                    </div>
                                    <div className='price-btn'><p className='price'>${ele.price}</p> 
-                                    <button className='btn' onClick={()=>handleBag(ele)}><BiShoppingBag color='white' size={25}/>ADD TO BAG</button>
+                                    <button className='btn' onClick={()=>handleBag(ele)}><BiShoppingBag color='white' size={25}/>
+                                    <Link to='/cart'>ADD TO BAG</Link>
+                                    </button>
                                    </div>
                                 </div>  
                                 
