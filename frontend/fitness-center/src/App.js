@@ -12,8 +12,6 @@ function App() {
   <>
   <Navbar_main/>
   <AllRoutes/>
-  {/* <MemberShip_signUp/> */}
-  {/* <Sign_Up_page/> */}
   <Footer/>
   </>
   );

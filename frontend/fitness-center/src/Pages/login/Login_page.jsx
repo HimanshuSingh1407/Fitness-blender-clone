@@ -15,6 +15,7 @@ import "./Login_page.css";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import axios from "axios";
+
 const initalLogin = {
   username: "",
   password: "",
@@ -23,8 +24,8 @@ const initalLogin = {
 const Login_page = () => {
   const [login, setLogin] = useState(initalLogin);
   useEffect(() => {
-    document.title="Login Page"
-  }, [])
+    document.title = "Login Page";
+  }, []);
   const handleLogin = async () => {
     console.log(login);
     let res = await axios.post(`http://localhost:8080/users/login`, login);
