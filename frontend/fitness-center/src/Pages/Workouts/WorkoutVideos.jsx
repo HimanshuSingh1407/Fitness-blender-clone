@@ -1,27 +1,49 @@
-import { Box,Button,Container,Divider,Text } from '@chakra-ui/react'
+import { Box,Button,Container,Text } from '@chakra-ui/react'
 import React, { useState } from 'react';
 import {IoIosInformationCircleOutline} from "react-icons/io"
-import {CgGym} from "react-icons/cg";
-import {CiFilter,CiSearch} from "react-icons/ci"
-import {AiOutlineCaretDown} from "react-icons/ai"
 import WorkoutVideoComp from '../../Components/Workout/WorkoutVideoComp';
 import axios from 'axios';
 import { useEffect } from 'react';
-import { useDispatch,useSelector } from "react-redux";
-import { getWorkoutData } from '../../Redux/WorkoutReducer/Workoutaction';
+// import { useDispatch,useSelector } from "react-redux";
+// import { getWorkoutData } from '../../Redux/WorkoutReducer/Workoutaction';
 const WorkoutVideos = () => {
- const dispatch=useDispatch()
-  const {data,loading,error}=useSelector((store)=>store.workoutData)
- 
+    let [data,setData]=useState([])
+    let [loading,setLoading]=useState(false)
+    let [error,setError]=useState(false)
+    let [page,setPage]=useState(1)
+    let arr=new Array(6).fill(0)
 
+   async function getVideoData (){
+        setLoading(true)
+      try{
+        let res= await axios.get(`https://backend-server-300e.onrender.com/workouts?limit=${16}&page=${page}`)
+        let data=await res.data
+        console.log(data);
+        setData(data)
+        setLoading(false)
+      }catch(e){
+          setError(true)
+      }
+    }
+
+ 
     useEffect(()=>{
+
+      document.title="Workout Page"
       dispatch(getWorkoutData())
-     },[])
+
+
+     
+        getVideoData()
+     },[page])
+
+      
+
   
  if(loading){
-     return <Box>Loading...</Box>
+     return <Text textAlign={"center"} pt={"100px"} fontSize={"20px"} margin={"auto"}>Loading...</Text>
  }else if(error){
-  return <Box>Error...</Box>
+  return <Text textAlign={"center"} mt={"500px"} fontSize={"25px"} margin={"auto"}>Error...</Text>
  }else
   return (
     <Box>
@@ -32,7 +54,7 @@ const WorkoutVideos = () => {
              </Box>
         </Container >
        
-        <Divider orientation='horizontal' />
+        {/* <Divider orientation='horizontal' />
         <Box   >
              <Container gap={"15px"} display={"flex"} maxW={"80%"}>
              <Box gap={2} pt={"19px"} display={"flex"}> 
@@ -73,7 +95,7 @@ const WorkoutVideos = () => {
               <Divider h={"60px"} orientation='vertical' />
              </Container>
             <Divider orientation='horizontal' />
-        </Box>
+        </Box> */}
 
        <Box bgColor={"#e3ebee"}>
         <Box pt={"40px"} w={{base:"500px",md:"800px",lg:"900px",xl:"1250px"}} gap={{base:"5px",md:"5px",lg:"5px",xl:"5px"}} margin={"auto"} display={"grid"} gridTemplateColumns={{base:"repeat(1,1fr)",md:"repeat(2,1fr)",lg:"repeat(3,1fr)",xl:"repeat(4,1fr)"}} >
@@ -85,7 +107,14 @@ const WorkoutVideos = () => {
           </Box>
        </Box>
          <Box pt={"20px"} pb={"20px"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
-            <Button>1</Button>
+           <Button disabled={page===1} onClick={()=>setPage(page-1)}>Prev</Button>
+           {
+             arr.map((el,i)=>{   
+              return    <Button  key={i} onClick={()=>{setPage(i+1)}}>{i+1}</Button>
+             
+             })
+           }
+            <Button onClick={()=>setPage(page+1)}>Next</Button>
          </Box>
     </Box>
   )

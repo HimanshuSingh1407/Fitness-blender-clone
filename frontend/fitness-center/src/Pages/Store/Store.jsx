@@ -29,6 +29,7 @@ const Store = () => {
   };
 
   useEffect(() => {
+    document.title="Store"
     dispatch(getStoreDataArray());
     //console.log(storeSlice)
   }, []);

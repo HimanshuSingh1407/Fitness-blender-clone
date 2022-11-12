@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   Box,
@@ -86,6 +85,7 @@ const Navbar_main = () => {
                 setStyle({ display: "none" });
               }}
             >
+
               <h4 className="navbar_main_menu_items_workout_text">WORKOUTS</h4>
               <BsFillCaretDownFill color="rgb(66,150,203)" size={"10px"} />
             </div>
@@ -148,13 +148,15 @@ const Navbar_main = () => {
               </Link>
             </div>
             <div className="navbar_main_menu_items_membership">
+              <Link to={'/membership'} >
               <h4 className="navbar_main_menu_items_membership_text">
                 MEMBERSHIP
               </h4>
+              </Link>
             </div>
           </div>
         </Box>
-        <Box display={[ "flex", "flex","flex", "none", "none"]} ml="57%" >
+        <Box display={["flex", "flex", "flex", "none", "none"]} ml="57%">
           <div
             className="navbar_main_menu_items_respons_signup"
             onMouseEnter={(e) => {
@@ -177,7 +179,6 @@ const Navbar_main = () => {
             colorScheme="rgb(255 255 255)"
             alignSelf={"center"}
             onClick={onOpen}
-            
           >
             <GiHamburgerMenu
               color="rgb(33,36,50)"
@@ -235,9 +236,11 @@ const Navbar_main = () => {
                   </Link>
                 </Box>
               </Box>
+              <Link to={"/membership"} >
               <Text color="rgb(66, 150, 203)" pt="40px" pb="15px">
                 MEMBERSHIP
               </Text>
+              </Link>
               <Divider orientation="horizontal" w={"90%"} />
               <Link to={"/workout"}>
                 <Text color="rgb(255,255,255)" pt="10px" fontSize={"14px"}>
@@ -372,7 +375,7 @@ const Navbar_main = () => {
 
             <div className="navbar_main_menu_items_shopping_bag">
               <Link to={"/cart"}>
-                <MdOutlineShoppingBag color="black"  size={"22px"} />
+                <MdOutlineShoppingBag color="black" size={"22px"} />
               </Link>
             </div>
           </div>
@@ -672,6 +675,8 @@ const Navbar_main = () => {
           </p>
         </div>
         <div className="navbar_main_menu_blackbox_signup_items_join_btn">
+          <Link to="/membership" >
+
           <Button
             w="100%"
             color={"rgb(255, 255, 255)"}
@@ -683,11 +688,14 @@ const Navbar_main = () => {
             _hover={{
               bgGradient: "linear(to right,rgb(48,179,205), rgb(63,154,203))",
             }}
-          >
+            >
             JOIN
           </Button>
+            </Link>
         </div>
         <div className="navbar_main_menu_blackbox_signup_items_signin_btn">
+          <Link to="/login" >
+
           <Button
             w="100%"
             color={"rgb(255, 255, 255)"}
@@ -701,9 +709,10 @@ const Navbar_main = () => {
             _hover={{
               bgGradient: "linear(to right, rgb(48,179,205), rgb(63,154,203))",
             }}
-          >
+            >
             SIGN IN
           </Button>
+            </Link>
         </div>
       </div>
       <div

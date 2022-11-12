@@ -61,9 +61,7 @@
 	/* transition: opacity 0.35s ease-out; */
 	transition-timing-function: ease;
 }
-.card__content {
-	width: 90%;
-}
+
 
 
 .content__hidden li {
