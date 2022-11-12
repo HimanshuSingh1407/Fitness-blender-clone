@@ -1,3 +1,4 @@
+
 import Store from './Pages/Store/Store';
 import Footer from './Pages/Footer/Footer';
 import Cart from './Pages/Cart/Cart';
@@ -14,6 +15,7 @@ function App() {
   <AllRoutes/>
   <Footer/>
   </>
+
   );
 }
 
