@@ -21,15 +21,20 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import EgiftForm from "../../Components/store/EgiftForm";
-import deleteCartItm from "../../api/cartSlice";
+import { deleteCartItem, getCartArrayData } from "../../api/cartSlice";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cart } = useSelector((state) => state);
   //console.log(cart);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCartArrayData());
+  }, []);
 
   return (
     <>
@@ -59,10 +64,10 @@ const Cart = () => {
                     </Thead>
                     <Tbody>
                       {cart.cart.map((el, ind) => (
-                        <Tr borderBottom="2px solid lightgrey" key={ind+1}>
+                        <Tr borderBottom="1px solid lightgrey" key={ind + 1}>
                           <Td>
                             <Flex alignItems={"flex-start"}>
-                              <HStack w={"200px"}>
+                              <HStack w={"130px"}>
                                 <img
                                   src={el.image}
                                   alt="passes"
@@ -76,7 +81,7 @@ const Cart = () => {
                                     textTransform={"capitalize"}
                                     fontWeight="600"
                                   >
-                                    {el.day}
+                                    {`${el.day}-Day Pass`}
                                   </Text>
                                 </Stack>
                               ) : (
@@ -93,22 +98,74 @@ const Cart = () => {
                           <Td>
                             <CloseIcon
                               cursor={"pointer"}
-                              onClick={() => dispatch(deleteCartItm(ind))}
+                              onClick={() => dispatch(deleteCartItem(ind))}
                             />
                           </Td>
-                          <Td fontWeight="600">{`$${el.price}`}</Td>
+                          <Td fontWeight="600">{`$${el.price.toFixed(2)}`}</Td>
                         </Tr>
                       ))}
                     </Tbody>
                     <Tfoot>
                       <Tr>
-                        <Th>Order Total:</Th>
+                        <Th
+                          fontSize={"1.5em"}
+                          fontFamily="heading"
+                          color={"black"}
+                          p="1.2em"
+                        >
+                          Order Total:
+                        </Th>
                         <Th></Th>
-                        <Th>multiply by</Th>
+                        <Th
+                          fontSize={"1.5em"}
+                          fontFamily="heading"
+                          color={"black"}
+                        >{`$${cart.totalSum.toFixed(2)}`}</Th>
                       </Tr>
                     </Tfoot>
                   </Table>
                 </TableContainer>
+                <Box
+                  display={"flex"}
+                  justifyContent="space-between"
+                  w="80%"
+                  m={"auto"}
+                  pt="15px"
+                  pb={"20px"}
+                  bgColor="white"
+                  px={"20px"}
+                  h="7em"
+                  borderTop={'2px solid lightgrey'}
+                 >
+                  <Button
+                    variant={"outline"}
+                    colorScheme="blue"
+                    _hover={{
+                      backgroundColor: "rgb(66,150,203)",
+                      color: "white",
+                    }}
+                    fontSize="13px"
+                    fontWeight={"600"}
+                    px="2em"
+                  >
+                   <Link to='/store'>CONTINUE SHOPPING</Link> 
+                  </Button>
+                  <Button
+                    paddingX={"3rem"}
+                    paddingY='2em'
+                    bgColor="blue.500"
+                    fontSize={"16px"}
+                    fontWeight="600"
+                    color={"white"}
+                    _hover={{
+                      bgGradient:
+                        "linear(to right,rgb(48,179,205), rgb(63,154,203))",
+                    }}
+                    
+                  >
+                    <Link to='/addressPage'>PROCEED TO CHECKOUT</Link>
+                  </Button>
+                </Box>
               </Box>
             </Container>
           ) : (
@@ -140,8 +197,12 @@ const Cart = () => {
                   fontSize={"xs"}
                   fontWeight="600"
                   color={"white"}
+                  _hover={{
+                    bgGradient:
+                      "linear(to right,rgb(48,179,205), rgb(63,154,203))",
+                  }}
                 >
-                  PROGRAMS
+                  <Link to='workoutPrograms'>PROGRAMS</Link>
                 </Button>
                 <Button
                   paddingX={"5rem"}
@@ -149,8 +210,12 @@ const Cart = () => {
                   fontSize={"xs"}
                   fontWeight="600"
                   color={"white"}
+                  _hover={{
+                    bgGradient:
+                      "linear(to right,rgb(48,179,205), rgb(63,154,203))",
+                  }}
                 >
-                  PROGRAMS
+                  <Link to='mealPlans'>MEAL PLANS</Link>
                 </Button>
                 <Button
                   paddingX={"5rem"}
@@ -158,8 +223,12 @@ const Cart = () => {
                   fontSize={"xs"}
                   fontWeight="600"
                   color={"white"}
+                  _hover={{
+                    bgGradient:
+                      "linear(to right,rgb(48,179,205), rgb(63,154,203))",
+                  }}
                 >
-                  PROGRAMS
+                 <Link to='/memberShip'>FB PLUS</Link> 
                 </Button>
                 <Button
                   paddingX={"5rem"}
@@ -167,8 +236,12 @@ const Cart = () => {
                   fontSize={"xs"}
                   fontWeight="600"
                   color={"white"}
+                  _hover={{
+                    bgGradient:
+                      "linear(to right,rgb(48,179,205), rgb(63,154,203))",
+                  }}
                 >
-                  PROGRAMS
+                 <Link to='/store'>GIFT CARDS</Link> 
                 </Button>
               </Grid>
             </Box>

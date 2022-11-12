@@ -29,13 +29,12 @@ const storeSlice = createSlice({
 
 export const { setStatus, setGiftArray, setEPassArray } = storeSlice.actions;
 export default storeSlice.reducer;
-
 export function getStoreDataArray() {
   return async function getStoreDataArrayThunk(dispatch, getState) {
     try {
       dispatch(setStatus(STATUS.LOADING));
-      let res1 = await axios(`http://localhost:8080/giftArray`);
-      let res2 = await axios(`http://localhost:8080/passArray`);
+      let res1 = await axios(`https://backend-server-300e.onrender.com/gift`);
+      let res2 = await axios(`https://backend-server-300e.onrender.com/fb_plus`);
       let data1 = res1.data;
       let data2 = res2.data;
       console.log(data2)

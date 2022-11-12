@@ -9,7 +9,7 @@ import "./Home_page.css"
 const Home_page = () => {
   return (
  <Stack>
-  <Navbar_main/>
+  {/* <Navbar_main/> */}
   <Banner_homepage/>
   <Intro_fb_plus/>
   <Workout_video_section_main_page/>

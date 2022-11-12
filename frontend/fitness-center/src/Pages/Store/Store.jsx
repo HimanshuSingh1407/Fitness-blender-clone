@@ -18,6 +18,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getStoreDataArray } from "../../api/storeSlice";
 import { addItemToCart } from "../../api/cartSlice";
+import { Link } from "react-router-dom";
 
 const Store = () => {
   const { storeSlice } = useSelector((state) => state);
@@ -80,10 +81,9 @@ const Store = () => {
                 {storeSlice.ePassArray.map((el, index) => (
                   //console.log(el.lazyfade_src)
                   <Epass
-                    key={index}
-                    image={el.images}
-                    day={el.day}
-                    para={el.para}
+                    key={el._id}
+                    image={el.lazyfade_src}
+                    day={el.x_small}
                     price={el.price}
                     fun={addItem}
                   />
@@ -136,8 +136,8 @@ const Store = () => {
               >
                 {storeSlice.giftArray.map((el, index) => (
                   <Gift
-                    key={index}
-                    image={el.images}
+                    key={el._id}
+                    image={el.lazyfade_src}
                     price={el.price}
                     fun={addItem}
                   />
@@ -197,8 +197,12 @@ const Store = () => {
                 fontSize={"xs"}
                 fontWeight="600"
                 color={"white"}
+                _hover={{
+                  bgGradient:
+                    "linear(to right,rgb(48,179,205), rgb(63,154,203))",
+                }}
               >
-                PROGRAMS
+               <Link to='/workoutPrograms'> PROGRAMS</Link>
               </Button>
               <Button
                 paddingX={"5rem"}
@@ -206,8 +210,12 @@ const Store = () => {
                 fontSize={"xs"}
                 fontWeight="600"
                 color={"white"}
+                _hover={{
+                  bgGradient:
+                    "linear(to right,rgb(48,179,205), rgb(63,154,203))",
+                }}
               >
-                MEAL PLANS
+               <Link to='/mealPlans'>MEAL PLANS</Link> 
               </Button>
               <Button
                 paddingX={"5rem"}
@@ -215,8 +223,12 @@ const Store = () => {
                 fontSize={"xs"}
                 fontWeight="600"
                 color={"white"}
+                _hover={{
+                  bgGradient:
+                    "linear(to right,rgb(48,179,205), rgb(63,154,203))",
+                }}
               >
-                FB PLUS
+                <Link to='/membership'>FB PLUS</Link>
               </Button>
             </Flex>
           </Stack>

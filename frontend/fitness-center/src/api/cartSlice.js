@@ -12,33 +12,40 @@ const cartSlice = createSlice({
   initialState: {
     status: STATUS.LOADING,
     cart: [],
+    totalSum: 0,
     msg: "",
   },
   reducers: {
     setStatus: function (state, action) {
       state.status = action.payload;
     },
-    addItem: (state, action) => {
-      state.cart.push(action.payload);
-    },
-    deleteItem: (state, action) => {
-      //console.log(action.payload)
-      //return state.cart = state.cart.splice(action.payload, 1);
-      return state.cart =  state.cart.filter((el, index) => {
-        return index!==action.payload;
-      });
-      
-    },
+    // addItem: (state, action) => {
+    //   state.cart.push(action.payload);
+    // },
+    // deleteItem: (state, action) => {
+    //   //console.log(action.payload)
+    //   return state.cart = state.cart.splice(action.payload, 1);
+    // },
     massage: (state, action) => {
       state.msg = action.payload;
     },
     setCartArray: (state, action) => {
       state.cart = action.payload;
     },
+    setTotalSum: (state, action) => {
+      state.totalSum = action.payload;
+    },
   },
 });
 
-export const { setStatus, addItem, deleteItem, massage } = cartSlice.actions;
+export const {
+  setStatus,
+  addItem,
+  deleteItem,
+  massage,
+  setCartArray,
+  setTotalSum,
+} = cartSlice.actions;
 export default cartSlice.reducer;
 
 export const addItemToCart = (obj) => {
@@ -59,7 +66,17 @@ export const addItemToCart = (obj) => {
                     dispatch(massage("Item not Added"))
                 } */
 
-      dispatch(addItem(obj));
+      const cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
+      cartArray.push(obj);
+      localStorage.setItem("cartArray", JSON.stringify(cartArray));
+
+      let totalSum = 0;
+      cartArray.forEach((el, index) => {
+        return (totalSum += Number(el.price));
+      });
+
+      dispatch(setTotalSum(totalSum));
+      dispatch(setCartArray(cartArray));
       dispatch(setStatus(STATUS.SUCCESS));
     } catch (error) {
       console.log(error);
@@ -68,7 +85,7 @@ export const addItemToCart = (obj) => {
   };
 };
 
-export const deleteCartItm = (id) => {
+export const deleteCartItem = (id) => {
   return async (dispatch, getState) => {
     try {
       dispatch(setStatus(STATUS.LOADING));
@@ -87,10 +104,39 @@ export const deleteCartItm = (id) => {
       //     dispatch(setStatus(STATUS.ERROR));
       //     dispatch(massage("Item not removed"))
       // }
-      // console.log(id)
-      // console.log(typeof id)
-      dispatch(deleteItem(id));
 
+      const cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
+      const newCartArray = cartArray.filter((el, ind) => ind !== id);
+      localStorage.setItem("cartArray", JSON.stringify(newCartArray));
+      dispatch(setCartArray(newCartArray));
+
+      let totalSum = 0;
+      newCartArray.forEach((el, index) => {
+        return (totalSum += Number(el.price));
+      });
+
+      dispatch(setTotalSum(totalSum));
+      dispatch(setStatus(STATUS.SUCCESS));
+    } catch (error) {
+      console.log(error.message);
+      dispatch(setStatus(STATUS.ERROR));
+    }
+  };
+};
+
+export const getCartArrayData = () => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch(setStatus(STATUS.LOADING));
+      const cartArray = JSON.parse(localStorage.getItem("cartArray")) || [];
+
+      let totalSum = 0;
+      cartArray.forEach((el, index) => {
+        return (totalSum += Number(el.price));
+      });
+
+      dispatch(setTotalSum(totalSum));
+      dispatch(setCartArray(cartArray));
       dispatch(setStatus(STATUS.SUCCESS));
     } catch (error) {
       console.log(error.message);
