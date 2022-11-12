@@ -6,17 +6,17 @@ import "./Meal.css"
 import {BiShoppingBag} from "react-icons/bi"
 import {RiFilter2Line} from "react-icons/ri"
 import {IoMdSearch} from "react-icons/io"
-
+import { Link } from "react-router-dom";
 const Meal = () => {
 
     const [meal,setMeal]=useState([])
     
     const handleBag=(data)=>
     {
-        let cartData=JSON.parse(localStorage.getItem('cart')) || [];
-        
-        cartData=[...cartData,data]
-        localStorage.setItem('cart', JSON.stringify(cartData));
+       const initalData={image:data.lazyfade_src,day:(data.week*7),price:data.price}
+        let cartData=JSON.parse(localStorage.getItem('cartArray')) || [];
+        cartData=[...cartData,initalData]
+        localStorage.setItem('cartArray', JSON.stringify(cartData));
     }
 
     useEffect(async()=>
@@ -77,7 +77,8 @@ const Meal = () => {
                           <h5>{ele.x_small}</h5> 
                           </div>
                           <div className='price-btn'><p className='price'>${ele.price}</p> 
-                           <button className='btn' onClick={()=>handleBag(ele)}><BiShoppingBag color='white' size={25}/>ADD TO BAG</button>
+                           <button className='btn' onClick={()=>handleBag(ele)}><BiShoppingBag color='white' size={25}/>
+                           <Link to='/cart'>ADD TO BAG</Link></button>
                           </div>
                        </div>  
                        

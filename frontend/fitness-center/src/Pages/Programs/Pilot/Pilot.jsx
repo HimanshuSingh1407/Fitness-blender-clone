@@ -6,6 +6,8 @@ import "./Pilot.css"
 import {BiShoppingBag} from "react-icons/bi"
 import {RiFilter2Line} from "react-icons/ri"
 import {IoMdSearch} from "react-icons/io"
+import { Link } from "react-router-dom";
+
 
 const Pilot = () => {
 
@@ -13,11 +15,10 @@ const Pilot = () => {
    
     const handleBag=(data)=>
     {
-        let cartData=JSON.parse(localStorage.getItem('cart')) || [];
-        
-        cartData=[...cartData,data]
-         console.log(cartData);
-        localStorage.setItem('cart', JSON.stringify(cartData));
+       const initalData={image:data.lazyfade_src,day:(data.week*7),price:data.price}
+        let cartData=JSON.parse(localStorage.getItem('cartArray')) || [];
+        cartData=[...cartData,initalData]
+        localStorage.setItem('cartArray', JSON.stringify(cartData));
     }
 
     useEffect(async()=>
@@ -73,7 +74,8 @@ const Pilot = () => {
                           <h4>{ele.x_small}</h4> 
                           </div>
                           <div className='price-btn'><p className='price'>${ele.price}</p> 
-                           <button className='btn' onClick={()=>handleBag(ele)}><BiShoppingBag color='white' size={25}/>ADD TO BAG</button>
+                           <button className='btn' onClick={()=>handleBag(ele)}><BiShoppingBag color='white' size={25}/>
+                           <Link to='/cart'>ADD TO BAG</Link></button>
                           </div>
                        </div>  
                        
