@@ -15,6 +15,7 @@ const WorkoutVideos = () => {
  
 
     useEffect(()=>{
+      document.title="Workout Page"
       dispatch(getWorkoutData())
      },[])
   

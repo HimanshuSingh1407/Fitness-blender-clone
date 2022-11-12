@@ -1,3 +1,7 @@
+import React, { useEffect, useState } from "react";
+import "./Sign_Up_page.css";
+import axios from "axios";
+import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import {
   Box,
   Button,
@@ -9,32 +13,32 @@ import {
   Input,
   Stack,
   Text,
+  VStack,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import "./Login_page.css";
-import { FaFacebookF } from "react-icons/fa";
-import { FaGoogle } from "react-icons/fa";
-import axios from "axios";
-const initalLogin = {
+import { Link } from "react-router-dom";
+
+const initalValue = {
+  fname: "",
+  lname: "",
+  email: "",
   username: "",
   password: "",
 };
 
-const Login_page = () => {
-  const [login, setLogin] = useState(initalLogin);
+const Sign_Up_page = () => {
+  const [user, setUser] = useState(initalValue);
   useEffect(() => {
-    document.title="Login Page"
+    document.title="SignUp Page"
   }, [])
-  const handleLogin = async () => {
-    console.log(login);
-    let res = await axios.post(`http://localhost:8080/users/login`, login);
-    console.log(res.data);
+  const handleSignup = async () => {
+    console.log(user);
+    await axios.post(`http://localhost:8080/users/signup`, user);
   };
-
+ 
   return (
     <Stack width={"100%"} textAlign="center" h={"100vh"} px={"3%"}>
       <Box mt="100px" mb="30px">
-        <Text fontSize={"25px"}>Sign In</Text>
+        <Text fontSize={"25px"}>JOIN</Text>
       </Box>
       <Box
         display={["block", "block", "flex", "flex", "flex"]}
@@ -89,14 +93,32 @@ const Login_page = () => {
           <Input
             mb="20px"
             type="text"
+            placeholder="first name"
+            onChange={(e) => setUser({ ...user, fname: e.target.value })}
+          />
+          <Input
+            mb="20px"
+            type="text"
+            placeholder="last name"
+            onChange={(e) => setUser({ ...user, lname: e.target.value })}
+          />
+          <Input
+            mb="20px"
+            type="email"
+            placeholder="email"
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
+          />
+          <Input
+            mb="20px"
+            type="text"
             placeholder="username"
-            onChange={(e) => setLogin({ ...login, username: e.target.value })}
+            onChange={(e) => setUser({ ...user, username: e.target.value })}
           />
           <Input
             mb="20px"
             type="password"
             placeholder="password"
-            onChange={(e) => setLogin({ ...login, password: e.target.value })}
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
           />
           <Button
             w="350px"
@@ -105,14 +127,24 @@ const Login_page = () => {
             _hover={{
               bgGradient: "linear(to right,rgb(48,179,205), rgb(63,154,203))",
             }}
-            onClick={handleLogin}
+            onClick={handleSignup}
           >
-            Sign in
+            JOIN
           </Button>
         </FormControl>
       </Box>
+      <VStack pt="100px" pb="100px" >
+        <Text  color="rgb(123,127,146)">
+          Already a member? {" "}
+          <Link to={"/login"} >
+
+          <span className="signUp_page_signin_link" >Sign In</span>
+          </Link>
+          {" "}
+        </Text>
+      </VStack>
     </Stack>
   );
 };
 
-export default Login_page;
+export default Sign_Up_page;

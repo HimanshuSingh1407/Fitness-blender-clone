@@ -21,7 +21,7 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import EgiftForm from "../../Components/store/EgiftForm";
 import deleteCartItm from "../../api/cartSlice";
@@ -30,7 +30,10 @@ const Cart = () => {
   const { cart } = useSelector((state) => state);
   //console.log(cart);
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    document.title="Cart Page"
+ 
+  }, []);
   return (
     <>
       <Container maxW={"100%"} marginBottom="2em" p={"0"}>
