@@ -1,0 +1,9 @@
+.homepage_last_not_sure_section {
+  border: 2px solid rgb(255 255 255);
+  transition: border 1s;
+  background-color: #fff;
+}
+
+.homepage_last_not_sure_section:hover {
+  border: 2px solid rgb(66,150,203);
+}

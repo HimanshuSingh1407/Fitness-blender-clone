@@ -19,7 +19,7 @@ let SupportiveCommunity_object = {
 
 const SupportiveCommunity = () => {
   return (
-    <Box>
+    <Box >
       <Box w="98.7%" m={"auto"}
        bgColor={SupportiveCommunity_object.back_ground_color} 
        pt={"30px"} 

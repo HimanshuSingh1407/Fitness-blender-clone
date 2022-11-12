@@ -25,15 +25,20 @@ const WorkoutVideos = () => {
           setError(true)
       }
     }
-//  const dispatch=useDispatch()
-//   const {data,loading,error}=useSelector((store)=>store.workoutData)
+
  
     useEffect(()=>{
-      // dispatch(getWorkoutData())
+
+      document.title="Workout Page"
+      dispatch(getWorkoutData())
+
+
+     
         getVideoData()
      },[page])
 
       
+
   
  if(loading){
      return <Text textAlign={"center"} pt={"100px"} fontSize={"20px"} margin={"auto"}>Loading...</Text>
