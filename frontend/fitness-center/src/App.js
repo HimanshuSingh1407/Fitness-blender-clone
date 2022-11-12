@@ -1,16 +1,12 @@
 import './App.css';
-// import Store from './Pages/Store/Store';
-// import Footer from './Pages/Footer/Footer';
-// import Cart from './Pages/Cart/Cart';
+import Navbar_main from './Components/homepage/navbar_main/Navbar_main';
+import Workout from './Pages/Workouts/Workout';
 import WorkoutVideos from './Pages/Workouts/WorkoutVideos'
 function App() {
   return (
-    <div>
-       <WorkoutVideos/>
-      {/* <Store /> */}
-      {/* <Cart /> */}
-      {/* <Footer /> */}
-    </div>
+    <>
+
+    </>
   );
 }
 
