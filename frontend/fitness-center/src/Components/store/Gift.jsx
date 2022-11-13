@@ -26,7 +26,7 @@ const Gift = ({ image, price, fun }) => {
         bgColor={"white"}
         paddingBottom={"1"}
       >
-        <img src={image} alt="image" />
+        <img src={image} alt="image"  width="100%" />
         <Flex justifyContent={"space-between"} p="2" paddingEnd={"2"} marginTop='3'>
           <Text textAlign={"left"} fontWeight="500" p={"2"}>
             {`$${price.toFixed(2)}`}

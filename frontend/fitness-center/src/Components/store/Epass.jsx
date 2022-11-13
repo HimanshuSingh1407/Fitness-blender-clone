@@ -31,7 +31,7 @@ const Epass = ({ image, day, price, fun }) => {
         <img
           src={image}
           alt="image"
-          width={{ base: "100%", md: "100%", lg: "100%" }}
+          width="100%"
         />
         <Flex justifyContent={"space-between"} p="1" paddingEnd={"2"}>
           <Stack>

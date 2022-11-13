@@ -20,11 +20,14 @@ const Success = () => {
 
   if(loading){
 
-    return <div className='loading'>
-          <img src="https://cdn.discordapp.com/attachments/707486765136740384/1013180271715160144/loading-gif.gif" alt=""/>
-         <h2>Proccessing</h2>
-         
+    return <div id="loadingdiv">
+            <img src="https://cdn.discordapp.com/attachments/707486765136740384/1013180271715160144/loading-gif.gif" width={300} alt=""/>
+          <h2>Proccessing</h2>
     </div>
+    //  ( <div style={{width:"100%"}} id="loadingdiv">
+
+    //            
+    // </div>)
   }
   else
 
@@ -35,8 +38,8 @@ const Success = () => {
        
       
        <div className="container">
-        <h1 id="orderPlaced">Your order has been placed!</h1>
-        <p>An email confirmation has been sent to your registered email address</p>
+        <p id="orderPlaced">Your order has been placed!</p>
+        <p id='txt'>An email confirmation has been sent to your registered email address</p>
         
        <Link to="/"> <button className='btn'>Continue Shopping</button></Link> 
         </div> 
