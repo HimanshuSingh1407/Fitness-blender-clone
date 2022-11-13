@@ -47,6 +47,9 @@ import { json, Link } from "react-router-dom";
 import { useEffect } from "react";
 
 const Navbar_main = () => {
+ 
+  
+
   const [styleworkout, setStyle] = useState({ display: "none" });
   const [styleprograms, setStyleprograms] = useState({ display: "none" });
   const [styleAbout, setStyleAbout] = useState({ display: "none" });
@@ -762,6 +765,7 @@ const Navbar_main = () => {
           setStyleSeachBar({ display: "flex" });
         }}
         onMouseLeave={(e) => {
+
           setStyleSeachBar({ display: "none" });
         }}
       >
