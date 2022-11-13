@@ -18,10 +18,12 @@ import "./Bill.css";
 import { GoChevronLeft } from "react-icons/go";
 import { json, Link } from "react-router-dom";
 
-const cartData = JSON.parse(localStorage.getItem("cartArray")) || [];
-console.log("cartData:", cartData);
+
+
 
 const Bill_Page = () => {
+
+  const cartData = JSON.parse(localStorage.getItem("cartArray")) || [];
   const [sum, setSum] = useState(0);
 
   const orderTotal = () => {

@@ -39,13 +39,13 @@ const Checkout = () => {
    }
   return (
     <>  
-     
-     <div className='container'><p className='heading'>Checkout</p></div>
+     <div style={{width:"100%"}}>
+     <div className='ccontainer'><p className='heading'>Checkout</p></div>
      
 
 
     <div className='checkoutBody'>
-     <div className='container'>
+     <div className='ccontainer'>
         
              <div>
 
@@ -82,7 +82,7 @@ const Checkout = () => {
                 
                  <div className='paymentbox' id={toggleSelect} onClick={haddleChange}>
                     <p>Choose a way to pay</p>
-                    <button className="paymentButton"><BsCreditCard2Back size={35} color='#B5B5B' style={{marginLeft:"10px"}}  /> Card</button>
+                    <button className="paymentButton" id='border'><BsCreditCard2Back size={35} color='#B5B5B' style={{marginLeft:"10px"}}  /> Card</button>
                     <button className="paymentButton" id='btn' ><img src='https://media.discordapp.net/attachments/702481980025077853/1041119488688529409/unknown.png' width={20} height={25} style={{marginLeft:"15px"}} /> Paypal</button>
                     
                  </div>
@@ -92,9 +92,13 @@ const Checkout = () => {
 
                  <div className= 'paymentbox borderbox' >
                   
-                  <div id='sectionH'>
+                  {/* <div>
+                  <p  className="paymentButton"><BsCreditCard2Back size={35} color='#B5B5B' style={{marginLeft:"10px"}} /> Pay with card</p>
+                  </div> */}
+
+                  <div className="boxxx">
                       <p  className="paymentButton"><BsCreditCard2Back size={35} color='#B5B5B' style={{marginLeft:"10px"}} /> Pay with card</p>
-                      <div style={{display:"flex"}}>
+                      <div style={{display:"flex",marginRight:"110px"}}>
                           <img src='https://cdn.worldvectorlogo.com/logos/visa.svg' width={40} height={40}/>
                           <img src='https://cdn.worldvectorlogo.com/logos/mastercard-2.svg' width={40} height={40}/>
                           <img src='https://cdn.worldvectorlogo.com/logos/union-pay.svg' width={40} height={40}/>
@@ -103,28 +107,30 @@ const Checkout = () => {
                           <img src='https://cdn.worldvectorlogo.com/logos/discover-4.svg' width={40} height={40}/>
 
                       </div>
+                  </div>
 
                       
-                  </div>
-                  
+                  {/* atm card selection   */}
                   <div className='cardsection'>
                       <div className='flexN'>
                        <p>Card Number</p>
                        <input type="number" className='cardNumbox' placeholder='•••• •••• •••• ••••' style={{width:"95%"}}/>
-                       </div>
+                  </div>
                       <div className='flexH'>
                               <div style={{width:"50%"}}>
                                <p>Expiration Date <span className='spaceh'>(MM/YY)</span> </p> 
-                              <input type="text"  placeholder='MM/YY'  style={{width:"90%"}}/>
+                              <input type="text" className='pd'  placeholder='MM/YY'  style={{width:"90%"}}/>
                               </div>
 
                               <div style={{width:"50%"}}>
-                              <p>CVV <span className='spaceh'> (3 digits)</span></p>
-                              <input type="number"  placeholder='•••' style={{width:"90%"}}/>
+                              <p>CVV <span className='spaceh' > (3 digits)</span></p>
+                              <input type="number" className='pd'  placeholder='•••' style={{width:"90%"}}/>
                               </div>
 
                       </div>
                   </div>
+
+                     {/* atm card selection end  */}
 
                   
                   
@@ -135,7 +141,7 @@ const Checkout = () => {
 
                </div>
  
-              <div style={{margin:"auto",marginTop:"50px"}} className="placeorder">
+              <div style={{margin:"auto",marginTop:"50px",paddingBottom:"50px"}} className="placeorder">
                     <div className=' flexf'>
                       <div className='edit' >Cancel</div>
                       <Link to='/success'>
@@ -148,6 +154,8 @@ const Checkout = () => {
 
              </div>
  
+
+     </div>
 
      </div>
 

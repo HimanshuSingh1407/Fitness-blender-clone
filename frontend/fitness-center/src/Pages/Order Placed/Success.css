@@ -3,11 +3,30 @@
     background-color: #f0f4f6;
 }
 .loading,.container{
-    position: absolute;
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
+   
     text-align: center;
+}
+.container
+{
+   
+    padding: 200px 0px;
+    display: grid;
+    text-align: center;
+   display: grid,
+
+}
+
+#loadingdiv
+{
+    width: 100%;
+height: auto;
+display: grid;
+ 
+justify-content: center;
+text-align: center;
+font-size: 50px;
+padding: 50px 0px;
+   
 }
 .btn
 {
@@ -18,4 +37,15 @@
     font-size: 16px;
     font-weight: bold;
     border-radius: 5px;
+
+    margin: auto;
+    margin-top: 20px;
+}
+#orderPlaced
+{
+    font-size: 50px;
+}
+.txt
+{
+    font-size: 20px;
 }
