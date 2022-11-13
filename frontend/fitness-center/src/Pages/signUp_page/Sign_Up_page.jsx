@@ -31,9 +31,10 @@ const Sign_Up_page = () => {
   useEffect(() => {
     document.title="SignUp Page"
   }, [])
+  
   const handleSignup = async () => {
     console.log(user);
-    await axios.post(`http://localhost:8080/users/signup`, user);
+    await axios.post(`https://backend-server-300e.onrender.com/users/login`, user);
 
   };
  

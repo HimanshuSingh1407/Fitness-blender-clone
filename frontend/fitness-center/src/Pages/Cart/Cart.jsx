@@ -177,8 +177,8 @@ const Cart = () => {
               marginX="2em"
               marginY={"7em"}
             >
-              <Stack marginTop={"3em"}>
-                <Heading fontWeight={"400"} m="1" p={"1"}>
+              <Stack marginTop={"3em"} textAlign="center" >
+                <Heading  fontWeight={"400"} m="1" p={"1"}>
                   Your Shopping Bag is Empty
                 </Heading>
                 <Text m="1" p={"1"}>
@@ -203,7 +203,7 @@ const Cart = () => {
                       "linear(to right,rgb(48,179,205), rgb(63,154,203))",
                   }}
                 >
-                  <Link to="workoutPrograms">PROGRAMS</Link>
+                  <Link to="/plans">PROGRAMS</Link>
                 </Button>
                 <Button
                   paddingX={"5rem"}
@@ -216,7 +216,7 @@ const Cart = () => {
                       "linear(to right,rgb(48,179,205), rgb(63,154,203))",
                   }}
                 >
-                  <Link to="mealPlans">MEAL PLANS</Link>
+                  <Link to="/meal">MEAL PLANS</Link>
                 </Button>
                 <Button
                   paddingX={"5rem"}
@@ -229,7 +229,7 @@ const Cart = () => {
                       "linear(to right,rgb(48,179,205), rgb(63,154,203))",
                   }}
                 >
-                  <Link to="/memberShip">FB PLUS</Link>
+                  <Link to="/membership">FB PLUS</Link>
                 </Button>
                 <Button
                   paddingX={"5rem"}

@@ -41,7 +41,13 @@ const Bill_Page = () => {
   }, []);
 
   return (
-    <div className="utter_div">
+    <div className="utter_div"  >
+
+    <Box bgColor={'white'} h='150px' borderTop={'1px solid lightgrey'}>
+    <Text fontSize={'45px'} margin='1em' >
+      Checkout
+    </Text>
+  </Box>
       <Box className="total_order">
         <Box
           h="50px"
