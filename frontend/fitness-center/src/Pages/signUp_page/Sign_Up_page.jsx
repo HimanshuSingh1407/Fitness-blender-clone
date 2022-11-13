@@ -34,7 +34,7 @@ const Sign_Up_page = () => {
   
   const handleSignup = async () => {
     console.log(user);
-    await axios.post(`https://backend-server-300e.onrender.com/users/login`, user);
+    await axios.post(`https://backend-server-300e.onrender.com/users/signup`, user);
 
   };
  

@@ -58,7 +58,7 @@ const Programs = () => {
           id="headImage"
         />
 
-        <div className="container">
+        <div className="containerx">
           <div className="Pheading">PROGRAMS, CHALLENGES, MEAL PLANS</div>
           <h1 className="headingHug">
             Follow professionally <br /> developed programs for <br /> fitness

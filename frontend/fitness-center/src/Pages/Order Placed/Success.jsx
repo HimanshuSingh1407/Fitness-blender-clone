@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import "./Success.css"
 
+
+
 const Success = () => {
 
     const [loading,setLoading]=useState(true);
+
+    localStorage.clear("cartArray");
   
 
     useEffect(()=>

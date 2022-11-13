@@ -17,7 +17,7 @@ body
  
 
 }
-.container
+.containerx
 {   
     width: 1340px;
     margin: auto; 
@@ -273,7 +273,7 @@ h3
         height: 600px;
     }
     
-    .container
+    .containerx
     {
         margin-top: 20px;
         width: auto;

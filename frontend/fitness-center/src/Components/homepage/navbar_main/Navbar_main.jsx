@@ -62,13 +62,15 @@ const Navbar_main = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
+  let data = JSON.parse(localStorage.getItem("auth")) || "";
+
+  const cartData = JSON.parse(localStorage.getItem("cartArray")) || [];
+
+
+  useEffect(() => {
+    
+  },[data])
   
-
-  let data=JSON.parse(localStorage.getItem("auth")) || ""
-
-  
-   
-
 
   return (
     <>
@@ -89,38 +91,38 @@ const Navbar_main = () => {
           display={["none", "none", "none", "flex", "flex"]}
         >
           <div className="navbar_main_menu_items">
-              <div
-                className="navbar_main_menu_items_workout"
-                onMouseEnter={(e) => {
-                  setStyle({ display: "flex" });
-                }}
-                onMouseLeave={(e) => {
-                  setStyle({ display: "none" });
-                }}
-              >
-                  <Link to="/workout">
+            <div
+              className="navbar_main_menu_items_workout"
+              onMouseEnter={(e) => {
+                setStyle({ display: "flex" });
+              }}
+              onMouseLeave={(e) => {
+                setStyle({ display: "none" });
+              }}
+            >
+              <Link to="/workout">
                 <h4 className="navbar_main_menu_items_workout_text">
                   WORKOUTS
                 </h4>
-            </Link>
-                <BsFillCaretDownFill color="rgb(66,150,203)" size={"10px"} />
-              </div>
-              <div
-                className="navbar_main_menu_items_programs"
-                onMouseEnter={(e) => {
-                  setStyleprograms({ display: "flex" });
-                }}
-                onMouseLeave={(e) => {
-                  setStyleprograms({ display: "none" });
-                }}
-              >
-                  <Link to="/programs">
+              </Link>
+              <BsFillCaretDownFill color="rgb(66,150,203)" size={"10px"} />
+            </div>
+            <div
+              className="navbar_main_menu_items_programs"
+              onMouseEnter={(e) => {
+                setStyleprograms({ display: "flex" });
+              }}
+              onMouseLeave={(e) => {
+                setStyleprograms({ display: "none" });
+              }}
+            >
+              <Link to="/programs">
                 <h4 className="navbar_main_menu_items_programs_text">
                   PROGRAMS
                 </h4>
-            </Link>
-                <BsFillCaretDownFill color="rgb(66,150,203)" size={"10px"} />
-              </div>
+              </Link>
+              <BsFillCaretDownFill color="rgb(66,150,203)" size={"10px"} />
+            </div>
             <div
               className="navbar_main_menu_items_healthy_living"
               onMouseEnter={(e) => {
@@ -267,11 +269,10 @@ const Navbar_main = () => {
                   WORKOUTS
                 </Text>
               </Link>
-              <Link to="/workoutvideos" >
-
-              <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
-                WORKOUT VIDEOS
-              </Text>
+              <Link to="/workoutvideos">
+                <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
+                  WORKOUT VIDEOS
+                </Text>
               </Link>
               <Link to={"/customworkout"}>
                 <Text
@@ -290,10 +291,9 @@ const Navbar_main = () => {
                 </Text>
               </Link>
               <Link to="/plans">
-
-              <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
-                WORKOUT PROGRAMS
-              </Text>
+                <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
+                  WORKOUT PROGRAMS
+                </Text>
               </Link>
               <Link to="/meal">
                 <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
@@ -382,11 +382,9 @@ const Navbar_main = () => {
               setStyleSignUp({ display: "none" });
             }}
           >
-            <h4 className="navbar_main_menu_items_hiSign_text">Hi! {
-
-              data.fname && data!=""? data.fname : "Sign In"
-
-            } </h4>
+            <h4 className="navbar_main_menu_items_hiSign_text">
+              Hi! {data.fname && data !== "" ? data.fname : "Sign In"}{" "}
+            </h4>
             <div className="navbar_main_menu_items_myfitness_text_box">
               <h4 className="navbar_main_menu_items_myfitness_text">
                 MY FITNESS
@@ -411,8 +409,9 @@ const Navbar_main = () => {
 
             <div className="navbar_main_menu_items_shopping_bag">
               <Link to={"/cart"}>
-                <MdOutlineShoppingBag color="black" size={"22px"} />
+                <MdOutlineShoppingBag color="black" size={"22px"}  />
               </Link>
+              <p className="navbar_main_menu_items_shopping_bag_cart_number">{cartData.length}</p>
             </div>
           </div>
         </Box>
@@ -460,7 +459,7 @@ const Navbar_main = () => {
         </Link>
       </div>
       {/* PROGRAMS*********************************** */}
-     
+
       <div
         className="navbar_main_menu_blackbox-programs"
         style={styleprograms}
@@ -471,50 +470,50 @@ const Navbar_main = () => {
           setStyleprograms({ display: "none" });
         }}
       >
-         <Link to="/plans" >
-        <div className="navbar_main_menu_blackbox-workout_items">
-          <div className="navbar_main_menu_blackbox-workout_image_box">
-            <Image
-              src={ProgramTickyes}
-              alt={ProgramTickyes}
-              boxSize="50px"
-              objectFit="cover"
-            />
+        <Link to="/plans">
+          <div className="navbar_main_menu_blackbox-workout_items">
+            <div className="navbar_main_menu_blackbox-workout_image_box">
+              <Image
+                src={ProgramTickyes}
+                alt={ProgramTickyes}
+                boxSize="50px"
+                objectFit="cover"
+              />
+            </div>
+            <div className="navbar_main_menu_blackbox-workout_text_box">
+              <h4 className="navbar_main_menu_blackbox_h4">WORKOUT PROGRAMS</h4>
+            </div>
           </div>
-          <div className="navbar_main_menu_blackbox-workout_text_box">
-            <h4 className="navbar_main_menu_blackbox_h4">WORKOUT PROGRAMS</h4>
-          </div>
-        </div>
         </Link>
-<Link to="/meal" >
-        <div className="navbar_main_menu_blackbox-workout_items">
-          <div className="navbar_main_menu_blackbox-workout_image_box">
-            <Image
-              src={MealPlanApple}
-              alt={MealPlanApple}
-              boxSize="50px"
-              objectFit="cover"
-            />
+        <Link to="/meal">
+          <div className="navbar_main_menu_blackbox-workout_items">
+            <div className="navbar_main_menu_blackbox-workout_image_box">
+              <Image
+                src={MealPlanApple}
+                alt={MealPlanApple}
+                boxSize="50px"
+                objectFit="cover"
+              />
+            </div>
+            <div className="navbar_main_menu_blackbox-workout_text_box">
+              <h4 className="navbar_main_menu_blackbox_h4">MEAL PLANS</h4>
+            </div>
           </div>
-          <div className="navbar_main_menu_blackbox-workout_text_box">
-            <h4 className="navbar_main_menu_blackbox_h4">MEAL PLANS</h4>
-          </div>
-        </div>
         </Link>
-        <Link to="/pilot" >
-        <div className="navbar_main_menu_blackbox-workout_items">
-          <div className="navbar_main_menu_blackbox-workout_image_box">
-            <Image
-              src={PilotPlanGear}
-              alt={PilotPlanGear}
-              boxSize="50px"
-              objectFit="cover"
-            />
+        <Link to="/pilot">
+          <div className="navbar_main_menu_blackbox-workout_items">
+            <div className="navbar_main_menu_blackbox-workout_image_box">
+              <Image
+                src={PilotPlanGear}
+                alt={PilotPlanGear}
+                boxSize="50px"
+                objectFit="cover"
+              />
+            </div>
+            <div className="navbar_main_menu_blackbox-workout_text_box">
+              <h4 className="navbar_main_menu_blackbox_h4">PILOT PROGRAMS</h4>
+            </div>
           </div>
-          <div className="navbar_main_menu_blackbox-workout_text_box">
-            <h4 className="navbar_main_menu_blackbox_h4">PILOT PROGRAMS</h4>
-          </div>
-        </div>
         </Link>
         <div className="navbar_main_menu_blackbox-workout_items">
           <div className="navbar_main_menu_blackbox-workout_image_box">
@@ -530,7 +529,7 @@ const Navbar_main = () => {
           </div>
         </div>
       </div>
-      
+
       {/* about********************* */}
       <div
         className="navbar_main_menu_blackbox-about"
