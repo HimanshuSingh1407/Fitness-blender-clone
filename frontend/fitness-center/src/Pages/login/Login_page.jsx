@@ -15,7 +15,7 @@ import "./Login_page.css";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
 
 const initalLogin = {
   username: "",
@@ -23,14 +23,19 @@ const initalLogin = {
 };
 
 const Login_page = () => {
+
   const [login, setLogin] = useState(initalLogin);
+
   useEffect(() => {
     document.title = "Login Page";
+    
   }, []);
+
   const handleLogin = async () => {
     console.log(login);
-    let res = await axios.post(`http://localhost:8080/users/login`, login);
-    console.log(res.data);
+    let res = await axios.post(`https://backend-server-300e.onrender.com/users/login`,login);
+    console.log(res.data)
+    localStorage.setItem("auth",JSON.stringify(res.data));
   };
 
   return (
