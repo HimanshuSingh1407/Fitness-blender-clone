@@ -9,7 +9,7 @@ const WorkoutVideoComp = ({image,text1,text2,text4,detail2,detail3,detail4,detai
        
       <Box className="card">
 <Box  className="card__content" margin={"auto"} w={{base:"500px",md:"400px",lg:"300px",xl:"300px"}}>
-        <Image w={{base:"500px",md:"400px",lg:"300px",xl:"300px"}} src={`${image}`}></Image>
+        <Image w={{base:"400px",md:"400px",lg:"300px",xl:"300px"}} src={`${image}`}></Image>
         <Box h={"150px"} backgroundColor={"white"} justifyContent={"space-between"} fontSize={{base:"16px",md:"12px",lg:"14px",xl:"14px"}}  display={"flex"}>
         <Box mt={"40px"}>
            <Box ml="12px" w={"200px"} textAlign={"start"} >

@@ -135,8 +135,8 @@ const Cart = () => {
                   bgColor="white"
                   px={"20px"}
                   h="7em"
-                  borderTop={'2px solid lightgrey'}
-                 >
+                  borderTop={"2px solid lightgrey"}
+                >
                   <Button
                     variant={"outline"}
                     colorScheme="blue"
@@ -148,11 +148,12 @@ const Cart = () => {
                     fontWeight={"600"}
                     px="2em"
                   >
-                   <Link to='/store'>CONTINUE SHOPPING</Link> 
+                    <Link to="/store">CONTINUE SHOPPING</Link>
                   </Button>
+                  <Link to="/billing">
                   <Button
                     paddingX={"3rem"}
-                    paddingY='2em'
+                    paddingY="2em"
                     bgColor="blue.500"
                     fontSize={"16px"}
                     fontWeight="600"
@@ -161,10 +162,10 @@ const Cart = () => {
                       bgGradient:
                         "linear(to right,rgb(48,179,205), rgb(63,154,203))",
                     }}
-                    
                   >
-                    <Link to='/addressPage'>PROCEED TO CHECKOUT</Link>
+                      PROCEED TO CHECKOUT
                   </Button>
+                      </Link>
                 </Box>
               </Box>
             </Container>
@@ -176,8 +177,8 @@ const Cart = () => {
               marginX="2em"
               marginY={"7em"}
             >
-              <Stack marginTop={"3em"}>
-                <Heading fontWeight={"400"} m="1" p={"1"}>
+              <Stack marginTop={"3em"} textAlign="center" >
+                <Heading  fontWeight={"400"} m="1" p={"1"}>
                   Your Shopping Bag is Empty
                 </Heading>
                 <Text m="1" p={"1"}>
@@ -202,7 +203,7 @@ const Cart = () => {
                       "linear(to right,rgb(48,179,205), rgb(63,154,203))",
                   }}
                 >
-                  <Link to='workoutPrograms'>PROGRAMS</Link>
+                  <Link to="/plans">PROGRAMS</Link>
                 </Button>
                 <Button
                   paddingX={"5rem"}
@@ -215,7 +216,7 @@ const Cart = () => {
                       "linear(to right,rgb(48,179,205), rgb(63,154,203))",
                   }}
                 >
-                  <Link to='mealPlans'>MEAL PLANS</Link>
+                  <Link to="/meal">MEAL PLANS</Link>
                 </Button>
                 <Button
                   paddingX={"5rem"}
@@ -228,7 +229,7 @@ const Cart = () => {
                       "linear(to right,rgb(48,179,205), rgb(63,154,203))",
                   }}
                 >
-                 <Link to='/memberShip'>FB PLUS</Link> 
+                  <Link to="/membership">FB PLUS</Link>
                 </Button>
                 <Button
                   paddingX={"5rem"}
@@ -241,7 +242,7 @@ const Cart = () => {
                       "linear(to right,rgb(48,179,205), rgb(63,154,203))",
                   }}
                 >
-                 <Link to='/store'>GIFT CARDS</Link> 
+                  <Link to="/store">GIFT CARDS</Link>
                 </Button>
               </Grid>
             </Box>

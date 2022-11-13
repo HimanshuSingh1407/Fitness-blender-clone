@@ -1,3 +1,7 @@
+import React, { useEffect, useState } from "react";
+import "./Sign_Up_page.css";
+import axios from "axios";
+import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import {
   Box,
   Button,
@@ -9,39 +13,35 @@ import {
   Input,
   Stack,
   Text,
+  VStack,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import "./Login_page.css";
-import { FaFacebookF } from "react-icons/fa";
-import { FaGoogle } from "react-icons/fa";
-import axios from "axios";
-import { json, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const initalLogin = {
+const initalValue = {
+  fname: "",
+  lname: "",
+  email: "",
   username: "",
   password: "",
 };
 
-const Login_page = () => {
-
-  const [login, setLogin] = useState(initalLogin);
-
+const Sign_Up_page = () => {
+  const [user, setUser] = useState(initalValue);
+  
   useEffect(() => {
-    document.title = "Login Page";
-    
-  }, []);
+    document.title="SignUp Page"
+  }, [])
+  
+  const handleSignup = async () => {
+    console.log(user);
+    await axios.post(`https://backend-server-300e.onrender.com/users/signup`, user);
 
-  const handleLogin = async () => {
-    console.log(login);
-    let res = await axios.post(`https://backend-server-300e.onrender.com/users/login`,login);
-    console.log(res.data)
-    localStorage.setItem("auth",JSON.stringify(res.data));
   };
-
+ 
   return (
     <Stack width={"100%"} textAlign="center" h={"100vh"} px={"3%"}>
       <Box mt="100px" mb="30px">
-        <Text fontSize={"25px"}>Sign In</Text>
+        <Text fontSize={"25px"}>JOIN</Text>
       </Box>
       <Box
         display={["block", "block", "flex", "flex", "flex"]}
@@ -92,22 +92,40 @@ const Login_page = () => {
           borderRadius="1px"
           w="350px"
           fontFamily={"sans-serif"}
-        >
+         >
+          <Input
+            mb="20px"
+            type="text"
+            placeholder="first name"
+            onChange={(e) => setUser({ ...user, fname: e.target.value })}
+          />
+          <Input
+            mb="20px"
+            type="text"
+            placeholder="last name"
+            onChange={(e) => setUser({ ...user, lname: e.target.value })}
+          />
+          <Input
+            mb="20px"
+            type="email"
+            placeholder="email"
+            onChange={(e) => setUser({ ...user, email: e.target.value })}
+          />
           <Input
             mb="20px"
             type="text"
             placeholder="username"
-            onChange={(e) => setLogin({ ...login, username: e.target.value })}
-            required
+            onChange={(e) => setUser({ ...user, username: e.target.value })}
+            required='required'
           />
           <Input
             mb="20px"
             type="password"
             placeholder="password"
-            onChange={(e) => setLogin({ ...login, password: e.target.value })}
-            required
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
+            required='required'
           />
-          <Link to={'/'}>
+          <Link to={"/login"} >
           <Button
             w="350px"
             bgColor={"rgb(65,152,203)"}
@@ -115,15 +133,24 @@ const Login_page = () => {
             _hover={{
               bgGradient: "linear(to right,rgb(48,179,205), rgb(63,154,203))",
             }}
-            onClick={handleLogin}
+            onClick={handleSignup}
           >
-            Sign in
+            JOIN
           </Button>
           </Link>
         </FormControl>
       </Box>
+      <VStack pt="100px" pb="100px" >
+        <Text  color="rgb(123,127,146)">
+          Already a member? {" "}
+          <Link to={"/login"} >
+          <span className="signUp_page_signin_link" >Sign In</span>
+          </Link>
+          {" "}
+        </Text>
+      </VStack>
     </Stack>
   );
 };
 
-export default Login_page;
+export default Sign_Up_page;

@@ -1,0 +1,327 @@
+body
+{
+    font-family: "Maison Neue","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+
+.topHeading
+{
+    background-color: #222533;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 550px;
+    color: #fff;
+    background-image: url(https://d18zdz9g6n5za7.cloudfront.net/workouts_programs/masthead-workouts.jpg);
+    display: flex;
+    align-items: center;
+ 
+
+}
+.containerx
+{   
+    width: 1340px;
+    margin: auto; 
+}
+a
+{
+    text-decoration: none;
+    color: #4296cb;
+}
+.Pheading
+{
+    padding-bottom: 15px;
+    padding-left: 0px;
+    color: #4296cb;
+    font-weight: 600;
+    letter-spacing: 0.042em;
+}
+.headingHug
+{
+    font-size: 2.8rem;   
+}
+
+#headImage
+{
+    display: none;
+} 
+
+.downArrow
+{
+   position: relative;
+   top: 48%;
+   right: 50%;
+}
+.programsNav
+{
+   
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    color: #4296cb;
+    font-weight: 400;
+    padding: 20px 0px;
+    background-color: white;
+}
+.programsNav>a
+{
+    text-decoration: none;
+    color: #4296cb;
+}
+#programs,#challenges,#mealPlans,#pilot
+{
+    width: 100%;
+    background-color: #e3ebee;
+    padding: 50px 0px;
+
+}
+.programsLab
+{
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 20px;
+    color: black;
+}
+.fullWorkout
+{
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin: auto;
+    gap: 10px;
+   
+    
+}
+
+.workoutTxt
+{
+    padding: 0px 15px;
+    color: black;
+}
+.duration
+{
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    font-weight: 500;
+    color: #4296cb;
+    margin: 10px 0px;
+}
+.card
+{
+    background-color: white;
+}
+.card>img
+{
+    width: 100%;
+}
+h3
+{
+    color: #2c2e3a; 
+    
+    font-size: 1.6rem;
+    line-height: 1.2em;
+}
+.price
+{
+    margin-top: 15px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+.workheading
+{
+    font-size: 30px;
+}
+.workoutdetial
+{
+    background-color: #f0f4f6;
+    padding: 50px 0px;
+}
+.Pcontainerbox
+{
+    max-width: 1200px;
+    color: black;
+    margin: auto;
+}
+.detialstxt
+{
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #e3ebee;
+    align-items: center;
+    gap: 5px;
+}
+#details
+{
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c2e3a;;
+}
+.feat
+{
+   
+    font-size: 18px;
+    font-weight: 570;
+    margin-top: 15px;
+    
+}
+.fb-perk
+{
+    margin-top: 20px;
+    background-color: white;
+    
+    padding: 0px 20px;
+    padding-bottom: 15px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+   
+}
+
+.fb,.plus
+{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.mp
+{
+    font-size: 1rem;
+    color: #a7aabb;
+    letter-spacing: 0.12rem;
+    line-height: 1rem;
+    font-weight: bold;
+}
+.plus
+{
+    color: #4296cb;
+}
+.perk-message
+{
+    color: #212432;
+    font-family: "Maison Neue","Helvetica";
+    font-size: 100%;
+    font-weight: 400;
+}
+.btn
+{
+    background-color: #4296cb;
+    color: white;
+    padding: 9px 15px;
+    border-radius: 6px;
+    margin-top: 20px ;
+    border: 0px;
+    
+}
+.center
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.navigatortop
+{
+    color: #4296cb;
+    font-size: 14px;
+    margin-top: -7px;
+    font-weight: 600;
+}
+
+@media (max-width: 1220px)
+{
+    .containerbox
+    {
+        padding: 0px 15px ;
+    }
+}
+@media (max-width: 1050px)
+{
+    .fullWorkout
+   {
+    padding: 0px 20px;
+    grid-template-columns: repeat(2,1fr); 
+   }
+   .card>img
+   {
+    width: 100%;
+   }
+}
+
+@media (max-width: 550px)
+{
+    .fullWorkout
+    {
+     padding: 0px 20px;
+     grid-template-columns: repeat(1,1fr); 
+    }
+}
+
+@media (max-width: 750px)
+{
+    #headImage
+    {
+       display: block;
+       width: 100%;
+       height: 60%;
+    } 
+    .topHeading
+    {
+        flex-direction: column;
+        background-image: none;
+        height: 600px;
+    }
+    
+    .containerx
+    {
+        margin-top: 20px;
+        width: auto;
+        text-align: center;
+        
+    }
+    
+    .headingHug
+    {
+       font-size: 2rem;   
+    }
+    .heading
+    {
+        padding-bottom: 0px;
+    }
+    .downArrow
+    {
+        position: static;
+        
+    }
+    .diplaynone
+    {
+        display: none;
+    }
+    
+}
+
+
+
+/* .topHeadText
+{
+    padding-bottom: 15px;
+    padding-left: 0px;
+    color: #4296cb;
+    font-weight: 600;
+    letter-spacing: 0.042em;
+}
+#texts
+{
+    padding-left: 100px;
+}
+
+
+.heading
+{
+    letter-spacing: -0.02em;
+    margin-left: -3px;
+    font-size: 2.8rem;
+    
+}*/
+

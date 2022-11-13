@@ -1,0 +1,6 @@
+.signUp_page_signin_link{
+color: rgb(65,152,203);
+}
+.signUp_page_signin_link:hover{
+text-decoration: underline;
+}

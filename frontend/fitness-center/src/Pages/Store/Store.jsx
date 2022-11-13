@@ -35,7 +35,7 @@ const Store = () => {
   }, []);
 
   return storeSlice.status === "loading" ? (
-    <div>Loading....</div>
+    <Text textAlign={"center"} pt={"100px"} fontSize={"20px"} margin={"auto"}>Loading...</Text>
   ) : (
     <>
       <Container bgColor={"gray.100"} maxW="100%" border={"1px solid white"}>

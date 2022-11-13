@@ -43,7 +43,8 @@ import { MdOutlineShoppingBag } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaRegUserCircle } from "react-icons/fa";
 import "./Navbar_main.css";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Navbar_main = () => {
   const [styleworkout, setStyle] = useState({ display: "none" });
@@ -57,6 +58,17 @@ const Navbar_main = () => {
   const [styleSeachBar, setStyleSeachBar] = useState({ display: "none" });
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+
+  let data = JSON.parse(localStorage.getItem("auth")) || "";
+
+  const cartData = JSON.parse(localStorage.getItem("cartArray")) || [];
+
+
+  useEffect(() => {
+    
+  },[data])
+  
+
   return (
     <>
       <Flex color="white" h={"100px"}>
@@ -85,7 +97,11 @@ const Navbar_main = () => {
                 setStyle({ display: "none" });
               }}
             >
-              <h4 className="navbar_main_menu_items_workout_text">WORKOUTS</h4>
+              <Link to="/workout">
+                <h4 className="navbar_main_menu_items_workout_text">
+                  WORKOUTS
+                </h4>
+              </Link>
               <BsFillCaretDownFill color="rgb(66,150,203)" size={"10px"} />
             </div>
             <div
@@ -97,7 +113,11 @@ const Navbar_main = () => {
                 setStyleprograms({ display: "none" });
               }}
             >
-              <h4 className="navbar_main_menu_items_programs_text">PROGRAMS</h4>
+              <Link to="/programs">
+                <h4 className="navbar_main_menu_items_programs_text">
+                  PROGRAMS
+                </h4>
+              </Link>
               <BsFillCaretDownFill color="rgb(66,150,203)" size={"10px"} />
             </div>
             <div
@@ -147,13 +167,15 @@ const Navbar_main = () => {
               </Link>
             </div>
             <div className="navbar_main_menu_items_membership">
-              <h4 className="navbar_main_menu_items_membership_text">
-                MEMBERSHIP
-              </h4>
+              <Link to={"/membership"}>
+                <h4 className="navbar_main_menu_items_membership_text">
+                  MEMBERSHIP
+                </h4>
+              </Link>
             </div>
           </div>
         </Box>
-        <Box display={[ "flex", "flex","flex", "none", "none"]} ml="57%" >
+        <Box display={["flex", "flex", "flex", "none", "none"]} ml="57%">
           <div
             className="navbar_main_menu_items_respons_signup"
             onMouseEnter={(e) => {
@@ -176,7 +198,6 @@ const Navbar_main = () => {
             colorScheme="rgb(255 255 255)"
             alignSelf={"center"}
             onClick={onOpen}
-            
           >
             <GiHamburgerMenu
               color="rgb(33,36,50)"
@@ -234,18 +255,22 @@ const Navbar_main = () => {
                   </Link>
                 </Box>
               </Box>
-              <Text color="rgb(66, 150, 203)" pt="40px" pb="15px">
-                MEMBERSHIP
-              </Text>
+              <Link to={"/membership"}>
+                <Text color="rgb(66, 150, 203)" pt="40px" pb="15px">
+                  MEMBERSHIP
+                </Text>
+              </Link>
               <Divider orientation="horizontal" w={"90%"} />
               <Link to={"/workout"}>
                 <Text color="rgb(255,255,255)" pt="10px" fontSize={"14px"}>
                   WORKOUTS
                 </Text>
               </Link>
-              <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
-                WORKOUT VIDEOS
-              </Text>
+              <Link to="/workoutvideos">
+                <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
+                  WORKOUT VIDEOS
+                </Text>
+              </Link>
               <Link to={"/customworkout"}>
                 <Text
                   color="rgb(167,170,174)"
@@ -257,23 +282,31 @@ const Navbar_main = () => {
                 </Text>
               </Link>
               <Divider orientation="horizontal" w={"90%"} />
-              <Text color="rgb(255,255,255)" pt="10px" fontSize={"14px"}>
-                PROGRAMS
-              </Text>
-              <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
-                WORKOUT PROGRAMS
-              </Text>
-              <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
-                MEAL PLANS
-              </Text>
-              <Text
-                color="rgb(167,170,174)"
-                pt="10px"
-                pb="10px"
-                fontSize={"14px"}
-              >
-                PILOT PLANS
-              </Text>
+              <Link to="/programs">
+                <Text color="rgb(255,255,255)" pt="10px" fontSize={"14px"}>
+                  PROGRAMS
+                </Text>
+              </Link>
+              <Link to="/plans">
+                <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
+                  WORKOUT PROGRAMS
+                </Text>
+              </Link>
+              <Link to="/meal">
+                <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
+                  MEAL PLANS
+                </Text>
+              </Link>
+              <Link to="/pilot">
+                <Text
+                  color="rgb(167,170,174)"
+                  pt="10px"
+                  pb="10px"
+                  fontSize={"14px"}
+                >
+                  PILOT PLANS
+                </Text>
+              </Link>
               <Divider orientation="horizontal" w={"90%"} />
               <Text color="rgb(255,255,255)" pt="10px" fontSize={"14px"}>
                 HEALTHY LIVING
@@ -346,7 +379,9 @@ const Navbar_main = () => {
               setStyleSignUp({ display: "none" });
             }}
           >
-            <h4 className="navbar_main_menu_items_hiSign_text">Hi! Sign In</h4>
+            <h4 className="navbar_main_menu_items_hiSign_text">
+              Hi! {data.fname && data !== "" ? data.fname : "Sign In"}{" "}
+            </h4>
             <div className="navbar_main_menu_items_myfitness_text_box">
               <h4 className="navbar_main_menu_items_myfitness_text">
                 MY FITNESS
@@ -371,13 +406,14 @@ const Navbar_main = () => {
 
             <div className="navbar_main_menu_items_shopping_bag">
               <Link to={"/cart"}>
-                <MdOutlineShoppingBag color="black"  size={"22px"} />
+                <MdOutlineShoppingBag color="black" size={"22px"}  />
               </Link>
+              <p className="navbar_main_menu_items_shopping_bag_cart_number">{cartData.length}</p>
             </div>
           </div>
         </Box>
       </Flex>
-      {/* BLACK BOX WORKOUT */}
+      {/* BLACK BOX WORKOUT***************** */}
       <div
         className="navbar_main_menu_blackbox-workout"
         style={styleworkout}
@@ -388,7 +424,7 @@ const Navbar_main = () => {
           setStyle({ display: "none" });
         }}
       >
-        <Link to={"/workout"}>
+        <Link to={"/workoutvideos"}>
           <div className="navbar_main_menu_blackbox-workout_items">
             <div className="navbar_main_menu_blackbox-workout_image_box">
               <Image
@@ -420,6 +456,7 @@ const Navbar_main = () => {
         </Link>
       </div>
       {/* PROGRAMS*********************************** */}
+
       <div
         className="navbar_main_menu_blackbox-programs"
         style={styleprograms}
@@ -430,45 +467,51 @@ const Navbar_main = () => {
           setStyleprograms({ display: "none" });
         }}
       >
-        <div className="navbar_main_menu_blackbox-workout_items">
-          <div className="navbar_main_menu_blackbox-workout_image_box">
-            <Image
-              src={ProgramTickyes}
-              alt={ProgramTickyes}
-              boxSize="50px"
-              objectFit="cover"
-            />
+        <Link to="/plans">
+          <div className="navbar_main_menu_blackbox-workout_items">
+            <div className="navbar_main_menu_blackbox-workout_image_box">
+              <Image
+                src={ProgramTickyes}
+                alt={ProgramTickyes}
+                boxSize="50px"
+                objectFit="cover"
+              />
+            </div>
+            <div className="navbar_main_menu_blackbox-workout_text_box">
+              <h4 className="navbar_main_menu_blackbox_h4">WORKOUT PROGRAMS</h4>
+            </div>
           </div>
-          <div className="navbar_main_menu_blackbox-workout_text_box">
-            <h4 className="navbar_main_menu_blackbox_h4">WORKOUT PROGRAMS</h4>
+        </Link>
+        <Link to="/meal">
+          <div className="navbar_main_menu_blackbox-workout_items">
+            <div className="navbar_main_menu_blackbox-workout_image_box">
+              <Image
+                src={MealPlanApple}
+                alt={MealPlanApple}
+                boxSize="50px"
+                objectFit="cover"
+              />
+            </div>
+            <div className="navbar_main_menu_blackbox-workout_text_box">
+              <h4 className="navbar_main_menu_blackbox_h4">MEAL PLANS</h4>
+            </div>
           </div>
-        </div>
-        <div className="navbar_main_menu_blackbox-workout_items">
-          <div className="navbar_main_menu_blackbox-workout_image_box">
-            <Image
-              src={MealPlanApple}
-              alt={MealPlanApple}
-              boxSize="50px"
-              objectFit="cover"
-            />
+        </Link>
+        <Link to="/pilot">
+          <div className="navbar_main_menu_blackbox-workout_items">
+            <div className="navbar_main_menu_blackbox-workout_image_box">
+              <Image
+                src={PilotPlanGear}
+                alt={PilotPlanGear}
+                boxSize="50px"
+                objectFit="cover"
+              />
+            </div>
+            <div className="navbar_main_menu_blackbox-workout_text_box">
+              <h4 className="navbar_main_menu_blackbox_h4">PILOT PROGRAMS</h4>
+            </div>
           </div>
-          <div className="navbar_main_menu_blackbox-workout_text_box">
-            <h4 className="navbar_main_menu_blackbox_h4">MEAL PLANS</h4>
-          </div>
-        </div>
-        <div className="navbar_main_menu_blackbox-workout_items">
-          <div className="navbar_main_menu_blackbox-workout_image_box">
-            <Image
-              src={PilotPlanGear}
-              alt={PilotPlanGear}
-              boxSize="50px"
-              objectFit="cover"
-            />
-          </div>
-          <div className="navbar_main_menu_blackbox-workout_text_box">
-            <h4 className="navbar_main_menu_blackbox_h4">PILOT PROGRAMS</h4>
-          </div>
-        </div>
+        </Link>
         <div className="navbar_main_menu_blackbox-workout_items">
           <div className="navbar_main_menu_blackbox-workout_image_box">
             <Image
@@ -483,6 +526,7 @@ const Navbar_main = () => {
           </div>
         </div>
       </div>
+
       {/* about********************* */}
       <div
         className="navbar_main_menu_blackbox-about"
@@ -651,6 +695,7 @@ const Navbar_main = () => {
           </div>
         </div>
       </div>
+      {/* membership */}
       <div
         className="navbar_main_menu_blackbox_signup"
         style={styleSignUp}
@@ -671,38 +716,43 @@ const Navbar_main = () => {
           </p>
         </div>
         <div className="navbar_main_menu_blackbox_signup_items_join_btn">
-          <Button
-            w="100%"
-            color={"rgb(255, 255, 255)"}
-            bgColor={"rgb(66,150,203)"}
-            mt="15px"
-            fontSize={"16px"}
-            letterSpacing="0.1px"
-            h="45px"
-            _hover={{
-              bgGradient: "linear(to right,rgb(48,179,205), rgb(63,154,203))",
-            }}
-          >
-            JOIN
-          </Button>
+          <Link to="/membership">
+            <Button
+              w="100%"
+              color={"rgb(255, 255, 255)"}
+              bgColor={"rgb(66,150,203)"}
+              mt="15px"
+              fontSize={"16px"}
+              letterSpacing="0.1px"
+              h="45px"
+              _hover={{
+                bgGradient: "linear(to right,rgb(48,179,205), rgb(63,154,203))",
+              }}
+            >
+              JOIN
+            </Button>
+          </Link>
         </div>
         <div className="navbar_main_menu_blackbox_signup_items_signin_btn">
-          <Button
-            w="100%"
-            color={"rgb(255, 255, 255)"}
-            bgColor={"rgb(49,52,67)"}
-            border="1px"
-            borderColor={"rgb(66,150,203)"}
-            mt="15px"
-            fontSize={"16px"}
-            letterSpacing="0.1px"
-            h="45px"
-            _hover={{
-              bgGradient: "linear(to right, rgb(48,179,205), rgb(63,154,203))",
-            }}
-          >
-            SIGN IN
-          </Button>
+          <Link to="/login">
+            <Button
+              w="100%"
+              color={"rgb(255, 255, 255)"}
+              bgColor={"rgb(49,52,67)"}
+              border="1px"
+              borderColor={"rgb(66,150,203)"}
+              mt="15px"
+              fontSize={"16px"}
+              letterSpacing="0.1px"
+              h="45px"
+              _hover={{
+                bgGradient:
+                  "linear(to right, rgb(48,179,205), rgb(63,154,203))",
+              }}
+            >
+              SIGN IN
+            </Button>
+          </Link>
         </div>
       </div>
       <div

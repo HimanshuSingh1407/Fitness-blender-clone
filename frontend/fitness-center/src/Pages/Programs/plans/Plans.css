@@ -1,0 +1,211 @@
+
+.productBox
+{
+    background-color: #f0f4f6;
+}
+.containerbox
+{
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin: auto;
+    gap: 10px;
+}
+
+
+.card
+{
+    background-color: white;
+    
+ 
+}
+.card>img
+{
+    width: 100%;
+}
+.newCard
+{
+    background: #ffa23b;
+    background-image: url(https://cloudfront.fitnessblender.com/assets/img/custom-cards/orange.png);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.workoutTxt
+{
+    padding: 0px 15px;
+    color: black;
+}
+.duration
+{
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    font-weight: 500;
+    color: #4296cb;
+    margin: 10px 0px;
+}
+.price
+{
+    margin-top: 15px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+.price-btn
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 10px;
+}
+.btnx 
+{
+    background-color: #4296cb;
+    color: white;
+    padding: 7px 10px;
+    border-radius: 3px;
+    margin-top: 20px ;
+    display: flex;
+   align-items: center;
+   gap: 5px;
+   font-weight: bold;
+}
+.textBox
+{
+    height: 100px;
+}
+.totalp , .fsh
+{
+    max-width: 1200px;
+    margin: auto;
+    color: black;
+    padding: 20px 0px;
+}
+.flex
+{
+    display: flex;
+    
+}
+.fs
+{
+    gap: 4px;
+    border: 1px solid #f0f4f6;
+    padding: 15px 20px;
+    
+    
+}
+.fsh
+{
+    
+    
+    
+    padding: 0px 0px;
+    background-color: white;
+    font-size: 12px;
+
+}
+.boxx
+{
+   width: 100%;
+   background-color: white;
+   border: 1px solid #f0f4f6;
+     
+}
+.fbnew
+{
+    color: #f8e399;
+}
+
+@media (max-width: 1220px)
+{
+    .containerbox
+    {
+        padding: 0px 15px ;
+    }
+}
+
+@media (max-width: 1220px)
+{
+.containerbox
+  {
+    
+
+    grid-template-columns: repeat(3,1fr);
+  
+  
+  }
+}
+@media (max-width: 950px)
+{
+    .containerbox
+  {
+    
+
+    grid-template-columns: repeat(2,1fr);
+  
+  
+  }
+}
+
+@media (max-width: 490px)
+{
+    .containerbox
+  {
+    
+
+    grid-template-columns: repeat(1,1fr);
+  
+  
+  }
+}
+
+
+
+.fbnew,.plusnew
+{
+    font-size: 4rem;
+    font-weight: bold;
+   
+}
+.plusnew
+{
+    color: #fff;
+}
+.sub-heading
+{
+    text-transform: none;
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+    line-height: 1em;
+    padding-left: 0.2rem;
+    padding-bottom: 20px;
+    border-bottom: 1px solid white;
+    color: white;
+}
+.line
+{
+    width: 2px;
+    background-color: white;
+}
+.-gift-card
+{
+    margin-top: 15px;
+     color: white;
+}
+
+.headbox
+{
+    max-width: 1200px;
+    padding-left: 10px;
+    margin: auto;
+    
+
+}
+.heading
+{
+    font-size: 30px;
+}
