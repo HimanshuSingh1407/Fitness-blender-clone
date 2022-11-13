@@ -13,15 +13,31 @@ import {
   Text,
   WrapItem,
 } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Bill.css";
 import { GoChevronLeft } from "react-icons/go";
+import { json, Link } from "react-router-dom";
+
+const cartData = JSON.parse(localStorage.getItem("cartArray")) || [];
+console.log("cartData:", cartData);
 
 const Bill_Page = () => {
-    useEffect(() => {
-        document.title="Check Out Page"
-     
-      }, []);
+  const [sum, setSum] = useState(0);
+
+  const orderTotal = () => {
+    let value = 0;
+    cartData.forEach((el, index) => {
+      return (value += Number(el.price));
+    });
+    setSum(value);
+    console.log("sum:", sum);
+  };
+
+  useEffect(() => {
+    document.title = "Check Out Page";
+    orderTotal();
+  }, []);
+
   return (
     <div className="utter_div">
       <Box className="total_order">
@@ -48,7 +64,7 @@ const Bill_Page = () => {
             <Spacer />
             <Box px="20px " pt="10px">
               <Button colorScheme="cyan" variant="link">
-                <GoChevronLeft /> Edit Cart
+                <GoChevronLeft /> <Link to="/cart">Edit Cart</Link>
               </Button>
             </Box>
           </Flex>
@@ -78,40 +94,41 @@ const Bill_Page = () => {
           </Flex>
         </Box>
 
-        <Box
-          h="50px"
-          bg="#fafcfd"
-          w="100%"
-          p={1}
-          color="black"
-          margin="auto"
-          boxShadow="  rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;"
-        >
-          <Flex>
-            <Box px="20px " pt="10px">
-              <Text
-                as="b"
-                fontFamily="Maison Neue"
-                fontSize="16px"
-                color="#212432"
-              >
-                7-Day Pass
-              </Text>
-            </Box>
-            <Spacer />
-            <Box px="20px " pt="10px">
-              <Text
-                as="b"
-                fontFamily="Maison Neue"
-                fontSize="16px"
-                color="#212432"
-              >
-                $3.99
-              </Text>
-            </Box>
-          </Flex>
-        </Box>
-
+        {cartData.map((item) => (
+          <Box
+            h="50px"
+            bg="#fafcfd"
+            w="100%"
+            p={1}
+            color="black"
+            margin="auto"
+            boxShadow="  rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;"
+          >
+            <Flex>
+              <Box px="20px " pt="10px">
+                <Text
+                  as="b"
+                  fontFamily="Maison Neue"
+                  fontSize="16px"
+                  color="#212432"
+                >
+                  {`${item.day}-Day Pass`}
+                </Text>
+              </Box>
+              <Spacer />
+              <Box px="20px " pt="10px">
+                <Text
+                  as="b"
+                  fontFamily="Maison Neue"
+                  fontSize="16px"
+                  color="#212432"
+                >
+                  {`$${item.price}`}
+                </Text>
+              </Box>
+            </Flex>
+          </Box>
+        ))}
         <Box
           h="50px"
           bg="#fafcfd"
@@ -140,7 +157,7 @@ const Bill_Page = () => {
                 fontSize="22px"
                 color="#212432"
               >
-                $3.99
+                {`$${sum}`}
               </Text>
             </Box>
           </Flex>
@@ -208,9 +225,12 @@ const Bill_Page = () => {
               </Button>
               <Spacer />
               <WrapItem>
+                <Link to="/checkout" >
+
                 <Button colorScheme="linkedin" height="55px" mt={2}>
                   PROCEED TO PAYMENT
                 </Button>
+                </Link>
               </WrapItem>
             </Flex>
           </FormControl>

@@ -15,6 +15,7 @@ import "./Login_page.css";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const initalLogin = {
   username: "",
@@ -92,13 +93,16 @@ const Login_page = () => {
             type="text"
             placeholder="username"
             onChange={(e) => setLogin({ ...login, username: e.target.value })}
+            required
           />
           <Input
             mb="20px"
             type="password"
             placeholder="password"
             onChange={(e) => setLogin({ ...login, password: e.target.value })}
+            required
           />
+          <Link to={'/'}>
           <Button
             w="350px"
             bgColor={"rgb(65,152,203)"}
@@ -110,6 +114,7 @@ const Login_page = () => {
           >
             Sign in
           </Button>
+          </Link>
         </FormControl>
       </Box>
     </Stack>

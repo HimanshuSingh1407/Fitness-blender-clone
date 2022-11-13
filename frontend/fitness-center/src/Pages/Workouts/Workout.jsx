@@ -11,7 +11,6 @@ const Workout = () => {
   const [beginnerData,setBeginnerData]=useState([])
   const [HILTrData,setHILTData]=useState([])
   const [strengthData,setStrengthData]=useState([])
-
   
    async function getWorkoutData (){
      let res=await axios.get(`https://backend-server-300e.onrender.com/workouts?limit=4`)
@@ -46,7 +45,6 @@ const Workout = () => {
   
 
      useEffect(()=>{
-      document.title="Workout Page"
          getWorkoutData()
           getPlusWorkoutData()
          getBeginnerWorkoutData()

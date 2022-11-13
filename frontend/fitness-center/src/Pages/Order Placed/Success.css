@@ -1,0 +1,21 @@
+.container
+{
+    background-color: #f0f4f6;
+}
+.loading,.container{
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.btn
+{
+    background-color: #4296cb;
+    color: white;
+    border: 0px ;
+    padding: 20px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+}

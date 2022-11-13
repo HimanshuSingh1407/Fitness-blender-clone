@@ -1,11 +1,7 @@
 import { AspectRatio, Box, Button, Hide, Image, Text } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React from "react";
 
 const CoustomWorkout = () => {
-  useEffect(() => {
-    document.title="Workout Page"
-  }, [])
-  
   return (
     <Box fontFamily={"Helvetica"}>
       <Hide below="md">
