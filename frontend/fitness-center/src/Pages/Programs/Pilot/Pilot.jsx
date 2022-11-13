@@ -72,7 +72,7 @@ const Pilot = () => {
                 </div>
                 <div className="price-btn">
                   <p className="price">${ele.price}</p>
-                  <button className="btn" onClick={() => handleBag(ele)}>
+                  <button className="btnx" onClick={() => handleBag(ele)}>
                     <BiShoppingBag color="white" size={25} />
                     <Link to="/cart">ADD TO BAG</Link>
                   </button>

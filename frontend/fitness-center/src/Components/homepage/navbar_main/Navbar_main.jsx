@@ -43,9 +43,13 @@ import { MdOutlineShoppingBag } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaRegUserCircle } from "react-icons/fa";
 import "./Navbar_main.css";
-import { Link } from "react-router-dom";
+import { json, Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const Navbar_main = () => {
+ 
+  
+
   const [styleworkout, setStyle] = useState({ display: "none" });
   const [styleprograms, setStyleprograms] = useState({ display: "none" });
   const [styleAbout, setStyleAbout] = useState({ display: "none" });
@@ -57,6 +61,13 @@ const Navbar_main = () => {
   const [styleSeachBar, setStyleSeachBar] = useState({ display: "none" });
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+
+  
+  let data=JSON.parse(localStorage.getItem("auth")) || ""
+  
+   
+
+
   return (
     <>
       <Flex color="white" h={"100px"}>
@@ -369,7 +380,9 @@ const Navbar_main = () => {
               setStyleSignUp({ display: "none" });
             }}
           >
-            <h4 className="navbar_main_menu_items_hiSign_text">Hi! Sign In</h4>
+            <h4 className="navbar_main_menu_items_hiSign_text">Hi! {
+              data.fname && data!=""? data.fname : "Sign In"
+            } </h4>
             <div className="navbar_main_menu_items_myfitness_text_box">
               <h4 className="navbar_main_menu_items_myfitness_text">
                 MY FITNESS
@@ -749,6 +762,7 @@ const Navbar_main = () => {
           setStyleSeachBar({ display: "flex" });
         }}
         onMouseLeave={(e) => {
+
           setStyleSeachBar({ display: "none" });
         }}
       >
