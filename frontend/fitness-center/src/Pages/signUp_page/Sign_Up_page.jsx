@@ -27,12 +27,14 @@ const initalValue = {
 
 const Sign_Up_page = () => {
   const [user, setUser] = useState(initalValue);
+  
   useEffect(() => {
     document.title="SignUp Page"
   }, [])
   const handleSignup = async () => {
     console.log(user);
     await axios.post(`http://localhost:8080/users/signup`, user);
+
   };
  
   return (
@@ -89,7 +91,7 @@ const Sign_Up_page = () => {
           borderRadius="1px"
           w="350px"
           fontFamily={"sans-serif"}
-        >
+         >
           <Input
             mb="20px"
             type="text"
@@ -113,13 +115,16 @@ const Sign_Up_page = () => {
             type="text"
             placeholder="username"
             onChange={(e) => setUser({ ...user, username: e.target.value })}
+            required='required'
           />
           <Input
             mb="20px"
             type="password"
             placeholder="password"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
+            required='required'
           />
+          <Link to={"/login"} >
           <Button
             w="350px"
             bgColor={"rgb(65,152,203)"}
@@ -131,13 +136,13 @@ const Sign_Up_page = () => {
           >
             JOIN
           </Button>
+          </Link>
         </FormControl>
       </Box>
       <VStack pt="100px" pb="100px" >
         <Text  color="rgb(123,127,146)">
           Already a member? {" "}
           <Link to={"/login"} >
-
           <span className="signUp_page_signin_link" >Sign In</span>
           </Link>
           {" "}

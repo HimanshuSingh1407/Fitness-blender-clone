@@ -76,31 +76,38 @@ const Navbar_main = () => {
           display={["none", "none", "none", "flex", "flex"]}
         >
           <div className="navbar_main_menu_items">
-            <div
-              className="navbar_main_menu_items_workout"
-              onMouseEnter={(e) => {
-                setStyle({ display: "flex" });
-              }}
-              onMouseLeave={(e) => {
-                setStyle({ display: "none" });
-              }}
-            >
-
-              <h4 className="navbar_main_menu_items_workout_text">WORKOUTS</h4>
-              <BsFillCaretDownFill color="rgb(66,150,203)" size={"10px"} />
-            </div>
-            <div
-              className="navbar_main_menu_items_programs"
-              onMouseEnter={(e) => {
-                setStyleprograms({ display: "flex" });
-              }}
-              onMouseLeave={(e) => {
-                setStyleprograms({ display: "none" });
-              }}
-            >
-              <h4 className="navbar_main_menu_items_programs_text">PROGRAMS</h4>
-              <BsFillCaretDownFill color="rgb(66,150,203)" size={"10px"} />
-            </div>
+              <div
+                className="navbar_main_menu_items_workout"
+                onMouseEnter={(e) => {
+                  setStyle({ display: "flex" });
+                }}
+                onMouseLeave={(e) => {
+                  setStyle({ display: "none" });
+                }}
+              >
+                  <Link to="/workout">
+                <h4 className="navbar_main_menu_items_workout_text">
+                  WORKOUTS
+                </h4>
+            </Link>
+                <BsFillCaretDownFill color="rgb(66,150,203)" size={"10px"} />
+              </div>
+              <div
+                className="navbar_main_menu_items_programs"
+                onMouseEnter={(e) => {
+                  setStyleprograms({ display: "flex" });
+                }}
+                onMouseLeave={(e) => {
+                  setStyleprograms({ display: "none" });
+                }}
+              >
+                  <Link to="/programs">
+                <h4 className="navbar_main_menu_items_programs_text">
+                  PROGRAMS
+                </h4>
+            </Link>
+                <BsFillCaretDownFill color="rgb(66,150,203)" size={"10px"} />
+              </div>
             <div
               className="navbar_main_menu_items_healthy_living"
               onMouseEnter={(e) => {
@@ -148,10 +155,10 @@ const Navbar_main = () => {
               </Link>
             </div>
             <div className="navbar_main_menu_items_membership">
-              <Link to={'/membership'} >
-              <h4 className="navbar_main_menu_items_membership_text">
-                MEMBERSHIP
-              </h4>
+              <Link to={"/membership"}>
+                <h4 className="navbar_main_menu_items_membership_text">
+                  MEMBERSHIP
+                </h4>
               </Link>
             </div>
           </div>
@@ -236,10 +243,10 @@ const Navbar_main = () => {
                   </Link>
                 </Box>
               </Box>
-              <Link to={"/membership"} >
-              <Text color="rgb(66, 150, 203)" pt="40px" pb="15px">
-                MEMBERSHIP
-              </Text>
+              <Link to={"/membership"}>
+                <Text color="rgb(66, 150, 203)" pt="40px" pb="15px">
+                  MEMBERSHIP
+                </Text>
               </Link>
               <Divider orientation="horizontal" w={"90%"} />
               <Link to={"/workout"}>
@@ -247,9 +254,12 @@ const Navbar_main = () => {
                   WORKOUTS
                 </Text>
               </Link>
+              <Link to="/workoutvideos" >
+
               <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
                 WORKOUT VIDEOS
               </Text>
+              </Link>
               <Link to={"/customworkout"}>
                 <Text
                   color="rgb(167,170,174)"
@@ -261,23 +271,32 @@ const Navbar_main = () => {
                 </Text>
               </Link>
               <Divider orientation="horizontal" w={"90%"} />
-              <Text color="rgb(255,255,255)" pt="10px" fontSize={"14px"}>
-                PROGRAMS
-              </Text>
+              <Link to="/programs">
+                <Text color="rgb(255,255,255)" pt="10px" fontSize={"14px"}>
+                  PROGRAMS
+                </Text>
+              </Link>
+              <Link to="/plans">
+
               <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
                 WORKOUT PROGRAMS
               </Text>
-              <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
-                MEAL PLANS
-              </Text>
-              <Text
-                color="rgb(167,170,174)"
-                pt="10px"
-                pb="10px"
-                fontSize={"14px"}
-              >
-                PILOT PLANS
-              </Text>
+              </Link>
+              <Link to="/meal">
+                <Text color="rgb(167,170,174)" pt="10px" fontSize={"14px"}>
+                  MEAL PLANS
+                </Text>
+              </Link>
+              <Link to="/pilot">
+                <Text
+                  color="rgb(167,170,174)"
+                  pt="10px"
+                  pb="10px"
+                  fontSize={"14px"}
+                >
+                  PILOT PLANS
+                </Text>
+              </Link>
               <Divider orientation="horizontal" w={"90%"} />
               <Text color="rgb(255,255,255)" pt="10px" fontSize={"14px"}>
                 HEALTHY LIVING
@@ -381,7 +400,7 @@ const Navbar_main = () => {
           </div>
         </Box>
       </Flex>
-      {/* BLACK BOX WORKOUT */}
+      {/* BLACK BOX WORKOUT***************** */}
       <div
         className="navbar_main_menu_blackbox-workout"
         style={styleworkout}
@@ -392,7 +411,7 @@ const Navbar_main = () => {
           setStyle({ display: "none" });
         }}
       >
-        <Link to={"/workout"}>
+        <Link to={"/workoutvideos"}>
           <div className="navbar_main_menu_blackbox-workout_items">
             <div className="navbar_main_menu_blackbox-workout_image_box">
               <Image
@@ -424,6 +443,7 @@ const Navbar_main = () => {
         </Link>
       </div>
       {/* PROGRAMS*********************************** */}
+     
       <div
         className="navbar_main_menu_blackbox-programs"
         style={styleprograms}
@@ -434,6 +454,7 @@ const Navbar_main = () => {
           setStyleprograms({ display: "none" });
         }}
       >
+         <Link to="/plans" >
         <div className="navbar_main_menu_blackbox-workout_items">
           <div className="navbar_main_menu_blackbox-workout_image_box">
             <Image
@@ -447,6 +468,8 @@ const Navbar_main = () => {
             <h4 className="navbar_main_menu_blackbox_h4">WORKOUT PROGRAMS</h4>
           </div>
         </div>
+        </Link>
+<Link to="/meal" >
         <div className="navbar_main_menu_blackbox-workout_items">
           <div className="navbar_main_menu_blackbox-workout_image_box">
             <Image
@@ -460,6 +483,8 @@ const Navbar_main = () => {
             <h4 className="navbar_main_menu_blackbox_h4">MEAL PLANS</h4>
           </div>
         </div>
+        </Link>
+        <Link to="/pilot" >
         <div className="navbar_main_menu_blackbox-workout_items">
           <div className="navbar_main_menu_blackbox-workout_image_box">
             <Image
@@ -473,6 +498,7 @@ const Navbar_main = () => {
             <h4 className="navbar_main_menu_blackbox_h4">PILOT PROGRAMS</h4>
           </div>
         </div>
+        </Link>
         <div className="navbar_main_menu_blackbox-workout_items">
           <div className="navbar_main_menu_blackbox-workout_image_box">
             <Image
@@ -487,6 +513,7 @@ const Navbar_main = () => {
           </div>
         </div>
       </div>
+      
       {/* about********************* */}
       <div
         className="navbar_main_menu_blackbox-about"
@@ -655,6 +682,7 @@ const Navbar_main = () => {
           </div>
         </div>
       </div>
+      {/* membership */}
       <div
         className="navbar_main_menu_blackbox_signup"
         style={styleSignUp}
@@ -675,44 +703,43 @@ const Navbar_main = () => {
           </p>
         </div>
         <div className="navbar_main_menu_blackbox_signup_items_join_btn">
-          <Link to="/membership" >
-
-          <Button
-            w="100%"
-            color={"rgb(255, 255, 255)"}
-            bgColor={"rgb(66,150,203)"}
-            mt="15px"
-            fontSize={"16px"}
-            letterSpacing="0.1px"
-            h="45px"
-            _hover={{
-              bgGradient: "linear(to right,rgb(48,179,205), rgb(63,154,203))",
-            }}
+          <Link to="/membership">
+            <Button
+              w="100%"
+              color={"rgb(255, 255, 255)"}
+              bgColor={"rgb(66,150,203)"}
+              mt="15px"
+              fontSize={"16px"}
+              letterSpacing="0.1px"
+              h="45px"
+              _hover={{
+                bgGradient: "linear(to right,rgb(48,179,205), rgb(63,154,203))",
+              }}
             >
-            JOIN
-          </Button>
-            </Link>
+              JOIN
+            </Button>
+          </Link>
         </div>
         <div className="navbar_main_menu_blackbox_signup_items_signin_btn">
-          <Link to="/login" >
-
-          <Button
-            w="100%"
-            color={"rgb(255, 255, 255)"}
-            bgColor={"rgb(49,52,67)"}
-            border="1px"
-            borderColor={"rgb(66,150,203)"}
-            mt="15px"
-            fontSize={"16px"}
-            letterSpacing="0.1px"
-            h="45px"
-            _hover={{
-              bgGradient: "linear(to right, rgb(48,179,205), rgb(63,154,203))",
-            }}
+          <Link to="/login">
+            <Button
+              w="100%"
+              color={"rgb(255, 255, 255)"}
+              bgColor={"rgb(49,52,67)"}
+              border="1px"
+              borderColor={"rgb(66,150,203)"}
+              mt="15px"
+              fontSize={"16px"}
+              letterSpacing="0.1px"
+              h="45px"
+              _hover={{
+                bgGradient:
+                  "linear(to right, rgb(48,179,205), rgb(63,154,203))",
+              }}
             >
-            SIGN IN
-          </Button>
-            </Link>
+              SIGN IN
+            </Button>
+          </Link>
         </div>
       </div>
       <div
@@ -747,4 +774,3 @@ const Navbar_main = () => {
 };
 
 export default Navbar_main;
-
