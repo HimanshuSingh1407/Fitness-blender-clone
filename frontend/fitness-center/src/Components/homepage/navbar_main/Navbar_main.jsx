@@ -63,7 +63,9 @@ const Navbar_main = () => {
   const btnRef = React.useRef();
 
   
+
   let data=JSON.parse(localStorage.getItem("auth")) || ""
+
   
    
 
@@ -381,7 +383,9 @@ const Navbar_main = () => {
             }}
           >
             <h4 className="navbar_main_menu_items_hiSign_text">Hi! {
+
               data.fname && data!=""? data.fname : "Sign In"
+
             } </h4>
             <div className="navbar_main_menu_items_myfitness_text_box">
               <h4 className="navbar_main_menu_items_myfitness_text">
