@@ -70,7 +70,7 @@ const Navbar_main = () => {
 
   return (
     <>
-      <Flex color="white" h={"100px"}>
+      <Flex color="white" h={"100px"} pos="sticky" top={"0px"} zIndex="27" >
         <Box bg="rgb(255 255 255)" w={["34px", "34px", "34px", "74px", "74px"]}>
           <Text>Box 2</Text>
         </Box>
@@ -174,7 +174,8 @@ const Navbar_main = () => {
             </div>
           </div>
         </Box>
-        <Box display={["flex", "flex", "flex", "none", "none"]} ml="57%">
+        {/* small screen */}
+        <Box display={["flex", "flex", "flex", "none", "none"]} pl="57%" bgColor="white"  >
           <div
             className="navbar_main_menu_items_respons_signup"
             onMouseEnter={(e) => {
@@ -370,7 +371,7 @@ const Navbar_main = () => {
             </DrawerBody>
           </DrawerContent>
         </Drawer>
-        <Box flex="1.5" display={["none", "none", "none", "flex", "flex"]}>
+        <Box flex="1.5" display={["none", "none", "none", "flex", "flex"]} bgColor="white" >
           <div
             className="navbar_main_menu_items_signup"
             onMouseEnter={(e) => {
@@ -391,7 +392,7 @@ const Navbar_main = () => {
             </div>
           </div>
         </Box>
-        <Box flex={"1"} display={["none", "none", "none", "flex", "flex"]}>
+        <Box flex={"1"} display={["none", "none", "none", "flex", "flex"]} bgColor="white" >
           <div className="navbar_main_menu_items_right_most">
             <div
               className="navbar_main_menu_items_search"
