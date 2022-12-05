@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-<img src="./src/assets/storeImages/fitness blender.pdf" width="500" height="300px">
+<img src="../src/assets/storeImages/fitness blender.pdf" width="500" height="300px">
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
