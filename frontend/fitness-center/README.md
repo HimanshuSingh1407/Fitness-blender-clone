@@ -1,5 +1,29 @@
-# Getting Started with Create React App
+## Features
 
+- Fullscreen mode
+- Easy navigation by category section\_
+
+
+## Team Members and Contributors
+
+- [@Himanshu Singh](https://github.com/HimanshuSingh1407)
+- [@Imran Gadwal](https://github.com/imrangadwal10)
+- [@Vikash Kumar](https://github.com/vikashkr-byte)
+- [@Sauvik](https://github.com/iam-souvik)
+- [@Rishu Kumar Nayak](https://github.com/rishunayak)
+
+
+
+
+
+
+
+
+
+
+
+
+# Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
