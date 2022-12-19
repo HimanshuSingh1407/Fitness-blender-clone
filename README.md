@@ -1,4 +1,6 @@
-# just-books-7908
+# Fitness Blender
+
+ <image src="https://iam-souvik.github.io/static/media/fitnes_blender_image.b1634d96a300462cd527.jpg"></image>
 
 This is a clone of Fitness Blender website. The clone is complete with Login page, Sign-in page, Shopping Cart, Workout Pages, Programme Pages and Payment Page feature.
 # https://www.fitnessblender.com/
