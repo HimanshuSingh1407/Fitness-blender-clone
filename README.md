@@ -4,7 +4,9 @@
 
 # Description :
 This is a clone of Fitness Blender website. The clone is complete with Login page, Sign-in page, Shopping Cart, Workout Pages, Programme Pages and Payment Page feature.
-# https://www.fitnessblender.com/
+# Netlify Link
+ [Netlify](https://fitnesscenter1.netlify.app/)
+
 
 ## Features
 
