@@ -19,7 +19,7 @@ This is a clone of Fitness Blender website. The clone is complete with Login pag
 - [@Himanshu Singh](https://github.com/HimanshuSingh1407)
 - [@Imran Gadwal](https://github.com/imrangadwal10)
 - [@Vikash Kumar](https://github.com/vikashkr-byte)
-- [@Souvik patra] (https://github.com/iam-souvik)
+- [@Souvik patra](https://github.com/iam-souvik)
 - [@Rishu Kumar Nayak](https://github.com/rishunayak)
 
 
