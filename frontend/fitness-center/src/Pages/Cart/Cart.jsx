@@ -21,20 +21,31 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { CloseIcon } from "@chakra-ui/icons";
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import EgiftForm from "../../Components/store/EgiftForm";
 import { deleteCartItem, getCartArrayData } from "../../api/cartSlice";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthContext/AuthContext";
 
 const Cart = () => {
   const { cart } = useSelector((state) => state);
-  //console.log(cart);
+   const navigate=useNavigate();
   const dispatch = useDispatch();
+  const {isAuth}=useContext(AuthContext)
 
   useEffect(() => {
     dispatch(getCartArrayData());
   }, []);
+
+
+  function handleClick(){
+          if(isAuth){
+            navigate("/billing")
+          }else{
+            navigate("/login")
+          }
+  }
 
   return (
     <>
@@ -150,8 +161,8 @@ const Cart = () => {
                   >
                     <Link to="/store">CONTINUE SHOPPING</Link>
                   </Button>
-                  <Link to="/billing">
                   <Button
+                    onClick={handleClick}
                     paddingX={"3rem"}
                     paddingY="2em"
                     bgColor="blue.500"
@@ -165,7 +176,6 @@ const Cart = () => {
                   >
                       PROCEED TO CHECKOUT
                   </Button>
-                      </Link>
                 </Box>
               </Box>
             </Container>

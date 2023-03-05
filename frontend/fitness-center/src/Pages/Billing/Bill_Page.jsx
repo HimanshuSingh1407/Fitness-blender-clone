@@ -1,30 +1,28 @@
 import {
   Box,
   Button,
-  Center,
-  FormLabel,
   Container,
   Flex,
-  FormControl,
-  FormHelperText,
   Input,
   Select,
   Spacer,
   Text,
   WrapItem,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useContext} from "react";
 import "./Bill.css";
 import { GoChevronLeft } from "react-icons/go";
-import { json, Link } from "react-router-dom";
-
-
-
+import {  Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom"
+import { AuthContext } from "../../AuthContext/AuthContext";
 
 const Bill_Page = () => {
 
   const cartData = JSON.parse(localStorage.getItem("cartArray")) || [];
   const [sum, setSum] = useState(0);
+  const navigate=useNavigate()
+
+
 
   const orderTotal = () => {
     let value = 0;
@@ -32,13 +30,17 @@ const Bill_Page = () => {
       return (value += Number(el.price));
     });
     setSum(value);
-    console.log("sum:", sum);
   };
 
   useEffect(() => {
     document.title = "Check Out Page";
     orderTotal();
   }, []);
+
+ function handleSubmit(e){
+  e.preventDefault()
+     navigate("/checkout")
+ }
 
   return (
     <div className="utter_div"  >
@@ -194,14 +196,14 @@ const Bill_Page = () => {
         </Box>
 
         <Container maxW="container.sm" bg="white" color="white">
-          <FormControl>
-            <FormHelperText>City</FormHelperText>
-            <Input type="email" placeholder="City Name" color="black" />
-
-            <FormHelperText color="black">
+          
+          <form onSubmit={handleSubmit}>
+          <lable>City</lable>
+            <Input required type="text" placeholder="City Name" color="black" />
+            <lable color="black">
               State / Province / Region
-            </FormHelperText>
-            <Select placeholder="Select One" color="black">
+            </lable>
+            <Select required placeholder="Select One" color="black">
               <option>United Arab Emirates</option>
               <option>Nigeria</option>
               <option>United Arab Emirates</option>
@@ -210,15 +212,16 @@ const Bill_Page = () => {
               <option>Nigeria</option>
             </Select>
 
-            <FormHelperText color="black">Postal Code</FormHelperText>
+            <lable color="black">Postal Code</lable>
             <Input
-              type="email"
+             required
+              type="number"
               placeholder="Postal Code / Zip Code"
               color="black"
             />
 
-            <FormHelperText color="black">Country</FormHelperText>
-            <Select placeholder="India" color="black">
+            <lable color="black">Country</lable>
+            <Select required placeholder="India" color="black">
               <option>United Arab Emirates</option>
               <option>Nigeria</option>
               <option>United Arab Emirates</option>
@@ -227,21 +230,16 @@ const Bill_Page = () => {
               <option>Nigeria</option>
             </Select>
 
-            <Flex>
-              <Button colorScheme="teal" variant="link">
+            <Flex> 
+               <Button colorScheme="teal" variant="link">
                 Cancel
               </Button>
               <Spacer />
               <WrapItem>
-                <Link to="/checkout" >
-
-                <Button colorScheme="linkedin" height="55px" mt={2}>
-                  PROCEED TO PAYMENT
-                </Button>
-                </Link>
+                <Input style={{cursor:"pointer"}} type={"submit"} value={"PROCEED TO PAYMENT"} bgColor="teal"  height="55px" mt={2}/>
               </WrapItem>
-            </Flex>
-          </FormControl>
+             </Flex>
+          </form>
         </Container>
       </Box>
 

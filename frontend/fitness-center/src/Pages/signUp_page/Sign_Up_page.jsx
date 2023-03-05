@@ -6,16 +6,13 @@ import {
   Box,
   Button,
   Divider,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  Heading,
   Input,
   Stack,
   Text,
   VStack,
+  useToast
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 
 const initalValue = {
   fname: "",
@@ -27,15 +24,31 @@ const initalValue = {
 
 const Sign_Up_page = () => {
   const [user, setUser] = useState(initalValue);
+  const toast=useToast();
+  const navigate=useNavigate();
   
   useEffect(() => {
     document.title="SignUp Page"
   }, [])
   
-  const handleSignup = async () => {
-    console.log(user);
-    await axios.post(`https://backend-server-300e.onrender.com/users/signup`, user);
-
+  const handleSignup = async (e) => {
+    e.preventDefault()
+    if(user.fname ==="" || user.lname ==="" || user.email==="" || user.password==="" || user.username===""){
+     return toast({
+        title: 'Empty Field.',
+        description: "Please enter all the fields",
+        status: 'warning',
+        duration: 2000,
+        isClosable: true,
+        position:"top"
+      })
+    }else{
+     let res= await axios.post(`https://backend-server-300e.onrender.com/users/signup`, user);
+      if(res.data.fname === user.fname){
+          navigate("/login")
+      }
+    }
+    
   };
  
   return (
@@ -85,48 +98,55 @@ const Sign_Up_page = () => {
         </Text>
         <Divider />
       </Box>
-      <Box>
-        <FormControl
+      <Box display={"flex"} justifyContent="center" alignItems={"center"}>
+      <Box w="350px" margin={"auto"}  >
+        <form
+         onSubmit={handleSignup}
           m="auto"
           mt={"20px"}
           borderRadius="1px"
-          w="350px"
+          
           fontFamily={"sans-serif"}
          >
           <Input
+            required
             mb="20px"
             type="text"
             placeholder="first name"
             onChange={(e) => setUser({ ...user, fname: e.target.value })}
           />
           <Input
+            required
             mb="20px"
             type="text"
             placeholder="last name"
             onChange={(e) => setUser({ ...user, lname: e.target.value })}
           />
           <Input
+            required
             mb="20px"
             type="email"
             placeholder="email"
             onChange={(e) => setUser({ ...user, email: e.target.value })}
           />
           <Input
+            required
             mb="20px"
             type="text"
             placeholder="username"
             onChange={(e) => setUser({ ...user, username: e.target.value })}
-            required='required'
+            
           />
           <Input
+            required
             mb="20px"
             type="password"
             placeholder="password"
             onChange={(e) => setUser({ ...user, password: e.target.value })}
-            required='required'
           />
-          <Link to={"/login"} >
-          <Button
+          <Input
+          type={"submit"}
+          textAlign={"center"}
             w="350px"
             bgColor={"rgb(65,152,203)"}
             color="rgb(255 255 255)"
@@ -134,11 +154,12 @@ const Sign_Up_page = () => {
               bgGradient: "linear(to right,rgb(48,179,205), rgb(63,154,203))",
             }}
             onClick={handleSignup}
-          >
-            JOIN
-          </Button>
-          </Link>
-        </FormControl>
+            value="JOIN"
+          />
+          
+         
+        </form>
+      </Box>
       </Box>
       <VStack pt="100px" pb="100px" >
         <Text  color="rgb(123,127,146)">

@@ -88,13 +88,23 @@
 .flex
 {
     display: flex;
+    cursor: pointer;
     
+}
+.show{
+    margin-left: 20px;
+    margin-top: 20px;
+    
+}
+.close{
+    margin-left: 10px;
 }
 .fs
 {
     gap: 4px;
     border: 1px solid #f0f4f6;
     padding: 15px 20px;
+
     
     
 }

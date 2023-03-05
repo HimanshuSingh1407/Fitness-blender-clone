@@ -7,8 +7,6 @@ import "./Success.css"
 const Success = () => {
 
     const [loading,setLoading]=useState(true);
-
-    localStorage.clear("cartArray");
   
 
     useEffect(()=>
@@ -17,6 +15,7 @@ const Success = () => {
       {
        setLoading(false)
       },5000)
+      localStorage.removeItem("cartArray")
         
     },[])
 
@@ -28,10 +27,7 @@ const Success = () => {
             <img src="https://cdn.discordapp.com/attachments/707486765136740384/1013180271715160144/loading-gif.gif" width={300} alt=""/>
           <h2>Proccessing</h2>
     </div>
-    //  ( <div style={{width:"100%"}} id="loadingdiv">
-
-    //            
-    // </div>)
+    
   }
   else
 

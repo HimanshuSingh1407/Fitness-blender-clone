@@ -2,20 +2,18 @@ import {
   Box,
   Button,
   Divider,
-  FormControl,
-  FormErrorMessage,
-  FormHelperText,
-  Heading,
+  useToast,
   Input,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./Login_page.css";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import axios from "axios";
-import { json, Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthContext/AuthContext";
 
 const initalLogin = {
   username: "",
@@ -23,19 +21,60 @@ const initalLogin = {
 };
 
 const Login_page = () => {
-
   const [login, setLogin] = useState(initalLogin);
+  const toast = useToast();
+  const navigate = useNavigate();
+  const { setIsAuth } = useContext(AuthContext);
 
   useEffect(() => {
     document.title = "Login Page";
-    
   }, []);
 
   const handleLogin = async () => {
-    console.log(login);
-    let res = await axios.post(`https://backend-server-300e.onrender.com/users/login`,login);
-    console.log(res.data)
-    localStorage.setItem("auth",JSON.stringify(res.data));
+    if (login.username === "" || login.password === "") {
+      return toast({
+        title: "Empty Field.",
+        description: "Please enter all the fields",
+        status: "warning",
+        duration: 2000,
+        isClosable: true,
+        position: "top",
+      });
+    } else {
+      axios
+        .post(`https://backend-server-300e.onrender.com/users/login`, login)
+        .then((res) => {
+         if(login.username === res.data.username){
+          localStorage.setItem("auth",JSON.stringify(res.data));
+            setIsAuth(true)
+            toast({
+              title:  "Login successfull" ,
+              description:`You have loggedin successfully.`,
+              status: "success",
+              duration: 2000,
+              isClosable: true,
+              position: "top",
+            });
+            navigate("/")
+        }
+        })
+        .catch((err) => {
+          return toast({
+            title:  err.response.data ,
+            description:`Enter Correct ${err.response.data}.`,
+            status: "warning",
+            duration: 2000,
+            isClosable: true,
+            position: "top",
+          });
+        });
+      // try{
+
+     
+      // }catch(e){
+      //   setError(e.response.data)
+      // }
+    }
   };
 
   return (
@@ -85,42 +124,51 @@ const Login_page = () => {
         </Text>
         <Divider />
       </Box>
-      <Box>
-        <FormControl
-          m="auto"
-          mt={"20px"}
-          borderRadius="1px"
-          w="350px"
-          fontFamily={"sans-serif"}
-        >
-          <Input
-            mb="20px"
-            type="text"
-            placeholder="username"
-            onChange={(e) => setLogin({ ...login, username: e.target.value })}
-            required
-          />
-          <Input
-            mb="20px"
-            type="password"
-            placeholder="password"
-            onChange={(e) => setLogin({ ...login, password: e.target.value })}
-            required
-          />
-          <Link to={'/'}>
-          <Button
-            w="350px"
-            bgColor={"rgb(65,152,203)"}
-            color="rgb(255 255 255)"
-            _hover={{
-              bgGradient: "linear(to right,rgb(48,179,205), rgb(63,154,203))",
-            }}
-            onClick={handleLogin}
+      <Box display={"flex"} justifyContent="center" alignItems="center">
+        <Box w="350px">
+          <form
+            m="auto"
+            mt={"20px"}
+            borderRadius="1px"
+            fontFamily={"sans-serif"}
           >
-            Sign in
-          </Button>
-          </Link>
-        </FormControl>
+            <Input
+              isRequired
+              mb="20px"
+              type="text"
+              placeholder="username"
+              onChange={(e) => setLogin({ ...login, username: e.target.value })}
+              required
+            />
+            <Input
+              isRequired
+              mb="20px"
+              type="password"
+              placeholder="password"
+              onChange={(e) => setLogin({ ...login, password: e.target.value })}
+              required
+            />
+
+            <Input
+              textAlign="center"
+              w="350px"
+              bgColor={"rgb(65,152,203)"}
+              color="rgb(255 255 255)"
+              _hover={{
+                bgGradient: "linear(to right,rgb(48,179,205), rgb(63,154,203))",
+                cursor: "pointer",
+              }}
+              onClick={handleLogin}
+              value="Sign in"
+            />
+          </form>
+          <Text mt={"30px"}>
+            Not signed up ?{" "}
+            <Link style={{ color: "teal" }} to={"/signup"}>
+              signup
+            </Link>{" "}
+          </Text>
+        </Box>
       </Box>
     </Stack>
   );

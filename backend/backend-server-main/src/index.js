@@ -34,7 +34,6 @@ app.get("/",(req,res)=>
     {
         res.send(e)
     }
-   
 })
 
 app.listen(PORT,async()=>

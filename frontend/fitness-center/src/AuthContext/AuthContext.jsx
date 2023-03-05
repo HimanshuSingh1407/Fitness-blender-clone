@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
-//   const dummydata = "Vikash";
+
   const [isAuth, setIsAuth] = useState(false);
 //   const [isToken, setIsToken] = useState(null);
   const handleLogin = (token) => {
@@ -16,7 +16,7 @@ export const AuthContextProvider = ({ children }) => {
   };
   return (
     <AuthContext.Provider
-      value={{ isAuth, handleLogin, handleLogOut}}
+      value={{ isAuth,setIsAuth, handleLogin, handleLogOut}}
     >
       {children}
     </AuthContext.Provider>
